@@ -4,6 +4,8 @@ import FeaturedDestinations from "@/components/home/FeaturedDestinations";
 import TravelExperiences from "@/components/home/TravelExperiences";
 import WhyChooseUs from "@/components/home/WhyChooseUs";
 import TravelVideo from "@/components/home/TravelVideo";
+import TravelDeals from "@/components/home/TravelDeals";
+import UpcomingAdventures from "@/components/home/UpcomingAdventures";
 
 export default function HomePage() {
   return (
@@ -14,6 +16,8 @@ export default function HomePage() {
       <TravelExperiences />
       <WhyChooseUs />
       <TravelVideo />
+      <TravelDeals />
+      <UpcomingAdventures />
     </main>
   );
 }

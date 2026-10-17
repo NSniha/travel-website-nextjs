@@ -7,6 +7,7 @@ import TravelVideo from "@/components/home/TravelVideo";
 import TravelDeals from "@/components/home/TravelDeals";
 import UpcomingAdventures from "@/components/home/UpcomingAdventures";
 import Testimonials from "@/components/home/Testimonials";
+import TravelTips from "@/components/home/TravelTips";
 
 export default function HomePage() {
   return (
@@ -20,6 +21,7 @@ export default function HomePage() {
       <TravelDeals />
       <UpcomingAdventures />
       <Testimonials />
+      <TravelTips />
     </main>
   );
 }

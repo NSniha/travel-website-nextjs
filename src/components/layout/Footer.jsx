@@ -67,7 +67,7 @@ export default function Footer() {
     <footer id="footer" className="relative isolate w-full overflow-hidden bg-[#050505] text-white">
       <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
         <Image
-          src="/images/shared/travel-video.jpg"
+          src="/images/shared/travel-footer.jpg"
           alt=""
           fill
           sizes="100vw"

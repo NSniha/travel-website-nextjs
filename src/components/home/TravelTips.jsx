@@ -30,7 +30,7 @@ export default function TravelTips() {
 
   return (
     <>
-      <section id="travel-tips" aria-labelledby="travel-tips-heading" className="bg-white pb-22.5 transition-colors duration-300 dark:bg-[#101112] sm:pb-25 lg:pb-25">
+      <section id="travel-tips" aria-labelledby="travel-tips-heading" className="bg-white pb-22.5 transition-colors duration-300 dark:bg-[#101112] sm:pb-28 lg:pb-30">
         <Container>
           <Reveal className="text-center">
             <h2 id="travel-tips-heading" className="font-heading text-[30px] leading-[1.2] font-semibold tracking-[-0.055em] text-[#242424] dark:text-white sm:text-[36px] lg:text-[44px]">

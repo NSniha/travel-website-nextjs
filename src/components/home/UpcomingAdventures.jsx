@@ -78,32 +78,30 @@ export default function UpcomingAdventures() {
 
   return (
     <>
-      <section id="upcoming-adventures" aria-labelledby="upcoming-adventures-heading" className="overflow-hidden bg-white py-[70px] transition-colors duration-300 dark:bg-[#101112] sm:py-[85px] lg:py-[50px]">
+      <section id="upcoming-adventures" aria-labelledby="upcoming-adventures-heading" className="overflow-hidden bg-white py-17.5 transition-colors duration-300 dark:bg-[#101112] sm:py-21.25 lg:py-12.5">
         <Container>
-          <div className="grid min-w-0 gap-9 xl:grid-cols-[minmax(0,0.94fr)_minmax(0,1.98fr)] xl:gap-[34px]">
+          <div className="grid min-w-0 gap-9 xl:grid-cols-[minmax(0,0.94fr)_minmax(0,1.98fr)] xl:gap-8.5">
             <div className="flex min-w-0 flex-col xl:pt-2">
               <Reveal>
-                <h2 id="upcoming-adventures-heading" className="font-heading max-w-[460px] text-[31px] leading-[1.23] font-medium tracking-[-0.055em] text-[#242424] dark:text-white sm:text-[36px] lg:text-[40px] xl:text-[42px]">
-                  <span className="block">Discover Places</span>
-                  <span className="block">That Stay With</span>
-                  <span className="block">You Forever.</span>
+                <h2 id="upcoming-adventures-heading" className="font-heading max-w-115 text-[30px] leading-[1.2] font-semibold tracking-[-0.055em] text-[#242424] dark:text-white sm:text-[36px] lg:text-[44px]">
+                  <span className="block">Discover Places</span><span className="block">That Stay With</span><span className="block">You Forever.</span>
                 </h2>
               </Reveal>
 
               <Reveal delay={120}>
-                <p className="mt-6 max-w-[390px] text-[14px] leading-[1.75] text-[#858585] dark:text-[#aaaaaa] sm:mt-7 sm:text-[16px]">
+                <p className="mt-6 max-w-97.5 text-[14px] leading-[1.75] text-[#858585] dark:text-[#aaaaaa] sm:mt-7 sm:text-[16px]">
                   Leave the usual behind. Follow extraordinary landscapes, vibrant cultures, and moments that make every journey unforgettable.
                 </p>
               </Reveal>
 
-              <Reveal delay={200} className="mt-9 flex items-center gap-[13px] xl:mt-auto">
+              <Reveal delay={200} className="mt-9 flex items-center gap-3.25 xl:mt-auto">
                 <button
                   type="button"
                   onClick={() => moveSlider(-1)}
                   disabled={!canPrev}
                   aria-label="Previous adventures"
                   aria-controls="adventures-slider"
-                  className="group flex h-[47px] w-[47px] items-center justify-center rounded-full border border-[#292929] bg-transparent text-[#292929] transition-all duration-300 hover:-translate-y-[2px] hover:bg-[#292929] hover:text-white hover:shadow-[0_8px_22px_rgba(0,0,0,0.12)] active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:translate-y-0 disabled:hover:bg-transparent disabled:hover:text-[#292929] disabled:hover:shadow-none dark:border-white/70 dark:text-white dark:hover:bg-white dark:hover:text-[#242424] dark:disabled:hover:bg-transparent dark:disabled:hover:text-white sm:h-[51px] sm:w-[51px]"
+                  className="group flex h-11.75 w-11.75 items-center justify-center rounded-full border border-[#292929] bg-transparent text-[#292929] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#292929] hover:text-white hover:shadow-[0_8px_22px_rgba(0,0,0,0.12)] active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:translate-y-0 disabled:hover:bg-transparent disabled:hover:text-[#292929] disabled:hover:shadow-none dark:border-white/70 dark:text-white dark:hover:bg-white dark:hover:text-[#242424] dark:disabled:hover:bg-transparent dark:disabled:hover:text-white sm:h-12.75 sm:w-12.75"
                 >
                   <IoArrowBackOutline aria-hidden="true" className="text-[21px] transition-transform duration-300 group-enabled:group-hover:-translate-x-1" />
                 </button>
@@ -114,7 +112,7 @@ export default function UpcomingAdventures() {
                   disabled={!canNext}
                   aria-label="Next adventures"
                   aria-controls="adventures-slider"
-                  className="group flex h-[47px] w-[47px] items-center justify-center rounded-full border border-[#242424] bg-[#242424] text-white transition-all duration-300 hover:-translate-y-[2px] hover:bg-[#484848] hover:shadow-[0_8px_22px_rgba(0,0,0,0.18)] active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:translate-y-0 disabled:hover:bg-[#242424] disabled:hover:shadow-none dark:border-white dark:bg-white dark:text-[#242424] dark:hover:bg-[#dedede] dark:disabled:hover:bg-white sm:h-[51px] sm:w-[51px]"
+                  className="group flex h-11.75 w-11.75 items-center justify-center rounded-full border border-[#242424] bg-[#242424] text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#484848] hover:shadow-[0_8px_22px_rgba(0,0,0,0.18)] active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:translate-y-0 disabled:hover:bg-[#242424] disabled:hover:shadow-none dark:border-white dark:bg-white dark:text-[#242424] dark:hover:bg-[#dedede] dark:disabled:hover:bg-white sm:h-12.75 sm:w-12.75"
                 >
                   <IoArrowForwardOutline aria-hidden="true" className="text-[21px] transition-transform duration-300 group-enabled:group-hover:translate-x-1" />
                 </button>
@@ -131,7 +129,7 @@ export default function UpcomingAdventures() {
                 id="adventures-slider"
                 onScroll={updateSlider}
                 aria-label="Explore WAYLUME adventures"
-                className="flex min-w-0 snap-x snap-mandatory gap-[18px] overflow-x-auto overscroll-x-contain [scrollbar-width:none] motion-safe:scroll-smooth [&::-webkit-scrollbar]:hidden lg:gap-[20px]"
+                className="flex min-w-0 snap-x snap-mandatory gap-4.5 overflow-x-auto overscroll-x-contain scrollbar-none motion-safe:scroll-smooth [&::-webkit-scrollbar]:hidden lg:gap-5"
               >
                 {upcomingAdventures.map((adventure) => (
                   <article key={adventure.id} className="w-full shrink-0 snap-start lg:w-[calc((100%-20px)/2)]">
@@ -139,40 +137,40 @@ export default function UpcomingAdventures() {
                       type="button"
                       onClick={() => setSelectedAdventure(adventure)}
                       aria-label={`Explore the ${adventure.location} journey`}
-                      className="group relative block h-[425px] w-full overflow-hidden rounded-[16px] bg-[#d9dedb] text-left outline-none transition-shadow duration-500 hover:shadow-[0_18px_42px_rgba(0,0,0,0.14)] focus-visible:ring-2 focus-visible:ring-[#242424] focus-visible:ring-offset-4 dark:bg-[#292c2e] dark:focus-visible:ring-white dark:focus-visible:ring-offset-[#101112] sm:h-[485px] lg:h-[520px] xl:h-[clamp(510px,41vw,625px)]"
+                      className="group relative block h-106.25 w-full overflow-hidden rounded-2xl bg-[#d9dedb] text-left outline-none transition-shadow duration-500 hover:shadow-[0_18px_42px_rgba(0,0,0,0.14)] focus-visible:ring-2 focus-visible:ring-[#242424] focus-visible:ring-offset-4 dark:bg-[#292c2e] dark:focus-visible:ring-white dark:focus-visible:ring-offset-[#101112] sm:h-121.25 lg:h-130 xl:h-[clamp(510px,41vw,625px)]"
                     >
                       <Image
                         src={adventure.image}
                         alt={`Travel scenery in ${adventure.location}`}
                         fill
                         sizes="(max-width: 1023px) 100vw, (max-width: 1279px) 50vw, 35vw"
-                        className="object-cover object-center transition-transform duration-[1100ms] ease-[cubic-bezier(0.22,1,0.36,1)] motion-safe:group-hover:scale-[1.065]"
+                        className="object-cover object-center transition-transform duration-1100 ease-[cubic-bezier(0.22,1,0.36,1)] motion-safe:group-hover:scale-[1.065]"
                       />
 
-                      <span className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/5 to-black/10" />
+                      <span className="absolute inset-0 bg-linear-to-t from-black/85 via-black/5 to-black/10" />
                       <span className="absolute inset-0 bg-black/0 transition-colors duration-500 group-hover:bg-black/10" />
 
-                      <span className="absolute top-[22px] left-[22px] z-10 inline-flex max-w-[calc(100%-44px)] items-center rounded-full bg-white px-[17px] py-[11px] text-[12px] leading-[1.2] font-medium text-[#242424] shadow-[0_3px_14px_rgba(0,0,0,0.06)] sm:top-[26px] sm:left-[26px] sm:px-[20px] sm:text-[14px]">
+                      <span className="absolute top-5.5 left-5.5 z-10 inline-flex max-w-[calc(100%-44px)] items-center rounded-full bg-white px-4.25 py-2.75 text-[12px] leading-[1.2] font-medium text-[#242424] shadow-[0_3px_14px_rgba(0,0,0,0.06)] sm:top-6.5 sm:left-6.5 sm:px-5 sm:text-[14px]">
                         {adventure.location}
                       </span>
 
-                      <span className="absolute inset-x-0 bottom-0 z-10 block p-[22px] text-white sm:p-[26px] lg:p-[25px] xl:p-[27px]">
+                      <span className="absolute inset-x-0 bottom-0 z-10 block p-5.5 text-white sm:p-6.5 lg:p-6.25 xl:p-6.75">
                         <span className="font-heading block text-[23px] leading-[1.2] font-medium tracking-[-0.04em] transition-transform duration-500 motion-safe:group-hover:-translate-y-1 sm:text-[25px] lg:text-[24px] 2xl:text-[27px]">
                           From {formatPrice(adventure.price)}
                         </span>
 
-                        <span className="mt-[13px] flex flex-wrap items-end justify-between gap-x-3 gap-y-2">
-                          <span className="text-[12px] leading-[1.5] text-white/90 sm:text-[14px]">
+                        <span className="mt-3.25 flex flex-wrap items-end justify-between gap-x-3 gap-y-2">
+                          <span className="text-[12px] leading-normal text-white/90 sm:text-[14px]">
                             {adventure.duration} · {adventure.date}
                           </span>
 
-                          <span className="inline-flex shrink-0 items-center gap-[9px] text-[12px] font-medium sm:text-[14px]">
+                          <span className="inline-flex shrink-0 items-center gap-2.25 text-[12px] font-medium sm:text-[14px]">
                             <span className="relative">
                               Explore Journey
-                              <span className="absolute -bottom-[3px] left-0 h-px w-full origin-left scale-x-0 bg-white transition-transform duration-300 group-hover:scale-x-100" />
+                              <span className="absolute -bottom-0.75 left-0 h-px w-full origin-left scale-x-0 bg-white transition-transform duration-300 group-hover:scale-x-100" />
                             </span>
 
-                            <IoArrowForwardOutline aria-hidden="true" className="text-[17px] transition-transform duration-300 group-hover:translate-x-[5px]" />
+                            <IoArrowForwardOutline aria-hidden="true" className="text-[17px] transition-transform duration-300 group-hover:translate-x-1.25" />
                           </span>
                         </span>
                       </span>
@@ -192,11 +190,11 @@ export default function UpcomingAdventures() {
         onClick={(event) => {
           if (event.target === event.currentTarget) closeDetails();
         }}
-        className="fixed inset-0 m-auto max-h-[calc(100dvh-32px)] w-[calc(100%-32px)] max-w-[620px] overflow-y-auto rounded-[18px] bg-white p-0 text-[#242424] shadow-[0_25px_90px_rgba(0,0,0,0.3)] backdrop:bg-black/70 backdrop:backdrop-blur-[4px] dark:bg-[#1e2022] dark:text-white"
+        className="fixed inset-0 m-auto max-h-[calc(100dvh-32px)] w-[calc(100%-32px)] max-w-155 overflow-y-auto rounded-[18px] bg-white p-0 text-[#242424] shadow-[0_25px_90px_rgba(0,0,0,0.3)] backdrop:bg-black/70 backdrop:backdrop-blur-xs dark:bg-[#1e2022] dark:text-white"
       >
         {selectedAdventure && (
           <div>
-            <div className="relative h-[220px] sm:h-[280px]">
+            <div className="relative h-55 sm:h-70">
               <Image src={selectedAdventure.image} alt={selectedAdventure.location} fill sizes="(max-width: 640px) 100vw, 620px" className="object-cover" />
 
               <button
@@ -215,7 +213,7 @@ export default function UpcomingAdventures() {
                 <span>{selectedAdventure.country}</span>
               </div>
 
-              <h2 id="adventure-dialog-title" className="font-heading mt-3 text-[28px] leading-[1.2] font-semibold tracking-[-0.05em] sm:text-[34px]">
+              <h2 id="adventure-dialog-title" className="font-heading mt-3 text-[28px] leading-[1.2] font-semibold tracking-tighter sm:text-[34px]">
                 {selectedAdventure.location}
               </h2>
 
@@ -223,7 +221,7 @@ export default function UpcomingAdventures() {
                 {selectedAdventure.description}
               </p>
 
-              <div className="mt-6 grid grid-cols-2 gap-4 rounded-[12px] bg-[#f7f7f7] p-4 dark:bg-[#292b2d]">
+              <div className="mt-6 grid grid-cols-2 gap-4 rounded-xl bg-[#f7f7f7] p-4 dark:bg-[#292b2d]">
                 <div>
                   <span className="flex items-center gap-2 text-[12px] text-[#858585] dark:text-[#aaaaaa]">
                     <IoCalendarOutline aria-hidden="true" className="text-[16px]" />
@@ -244,7 +242,7 @@ export default function UpcomingAdventures() {
               <ul className="mt-4 space-y-3">
                 {selectedAdventure.highlights.map((highlight) => (
                   <li key={highlight} className="flex items-start gap-3 text-[14px] leading-[1.6] text-[#777777] dark:text-[#b0b0b0]">
-                    <IoCheckmarkOutline aria-hidden="true" className="mt-[2px] shrink-0 text-[17px] text-[#242424] dark:text-white" />
+                    <IoCheckmarkOutline aria-hidden="true" className="mt-0.5 shrink-0 text-[17px] text-[#242424] dark:text-white" />
                     <span>{highlight}</span>
                   </li>
                 ))}
@@ -257,7 +255,7 @@ export default function UpcomingAdventures() {
               <button
                 type="button"
                 onClick={closeDetails}
-                className="mt-6 inline-flex h-[44px] items-center justify-center rounded-[8px] bg-[#242424] px-6 text-[13px] font-medium text-white transition-all duration-300 hover:-translate-y-1 hover:bg-[#454545] active:translate-y-0 dark:bg-white dark:text-[#242424] dark:hover:bg-[#e9e9e9]"
+                className="mt-6 inline-flex h-11 items-center justify-center rounded-lg bg-[#242424] px-6 text-[13px] font-medium text-white transition-all duration-300 hover:-translate-y-1 hover:bg-[#454545] active:translate-y-0 dark:bg-white dark:text-[#242424] dark:hover:bg-[#e9e9e9]"
               >
                 Back to Journeys
               </button>

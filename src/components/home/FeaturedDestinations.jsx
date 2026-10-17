@@ -54,29 +54,25 @@ export default function FeaturedDestinations() {
 
   return (
     <>
-      <section id="destinations" aria-labelledby="destinations-heading" className="bg-[#f8f8f8] py-[75px] transition-colors duration-300 dark:bg-[#191b1d] sm:py-[85px] xl:py-[90px]">
+      <section id="destinations" aria-labelledby="destinations-heading" className="bg-[#f8f8f8] py-18.75 transition-colors duration-300 dark:bg-[#191b1d] sm:py-21.25 xl:py-22.5">
         <Container>
           <div className="grid items-start gap-10 xl:grid-cols-[minmax(0,0.95fr)_minmax(0,1.8fr)] xl:gap-12">
             <div className="xl:pt-1">
               <Reveal>
-                <h2 id="destinations-heading" className="font-heading max-w-[420px] text-[31px] leading-[1.2] font-medium tracking-[-0.055em] text-[#242424] dark:text-white sm:text-[37px] lg:text-[40px] xl:text-[43px]">
-                  Discover Our
-                  <br className="hidden sm:block" />
-                  {" "}Handpicked
-                  <br className="hidden sm:block" />
-                  {" "}Destinations
+                <h2 id="destinations-heading" className="font-heading max-w-105 text-[30px] leading-[1.2] font-semibold tracking-[-0.055em] text-[#242424] dark:text-white sm:text-[36px] lg:text-[44px]">
+                  Discover Our<br className="hidden sm:block" />{" "}Handpicked<br className="hidden sm:block" />{" "}Destinations
                 </h2>
               </Reveal>
 
               <Reveal delay={130}>
-                <p className="mt-7 max-w-[385px] text-[14px] leading-[1.75] text-[#858585] dark:text-[#aaaaaa] sm:mt-10 sm:text-[16px] lg:text-[17px]">
+                <p className="mt-7 max-w-96.25 text-[14px] leading-[1.75] text-[#858585] dark:text-[#aaaaaa] sm:mt-10 sm:text-[16px] lg:text-[17px]">
                   Explore extraordinary places, thoughtfully selected for the moments you will remember forever.
                 </p>
               </Reveal>
             </div>
 
             <div className="grid min-w-0 grid-cols-1 gap-5 sm:grid-cols-2">
-              <Reveal delay={100} className="h-[340px] sm:h-[430px] xl:h-[455px]">
+              <Reveal delay={100} className="h-85 sm:h-107.5 xl:h-113.75">
                 <button
                   type="button"
                   onClick={() => setDetailsOpen(true)}
@@ -88,16 +84,16 @@ export default function FeaturedDestinations() {
                     alt="Tropical coastline with dramatic cliffs and turquoise water in Bali"
                     fill
                     sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 30vw"
-                    className="object-cover object-center transition-transform duration-[1000ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/image:scale-[1.065]"
+                    className="object-cover object-center transition-transform duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/image:scale-[1.065]"
                   />
 
                   <span className="absolute inset-0 bg-black/0 transition-colors duration-500 group-hover/image:bg-black/10" />
                 </button>
               </Reveal>
 
-              <div className="flex min-w-0 flex-col gap-5 sm:h-[430px] xl:h-[455px]">
+              <div className="flex min-w-0 flex-col gap-5 sm:h-107.5 xl:h-113.75">
                 <Reveal delay={170} className="shrink-0">
-                  <article className="flex min-h-[155px] flex-col justify-center rounded-[15px] bg-white px-5 py-5 transition-colors duration-300 dark:bg-[#242628] sm:px-[22px] xl:min-h-[165px]">
+                  <article className="flex min-h-38.75 flex-col justify-center rounded-[15px] bg-white px-5 py-5 transition-colors duration-300 dark:bg-[#242628] sm:px-5.5 xl:min-h-41.25">
                     <h3 className="font-heading text-[18px] leading-[1.3] font-semibold tracking-[-0.035em] text-[#242424] dark:text-white">
                       {destination.name}
                     </h3>
@@ -108,20 +104,20 @@ export default function FeaturedDestinations() {
                   </article>
                 </Reveal>
 
-                <div className="grid min-h-[230px] grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)] items-stretch gap-4 sm:min-h-0 sm:flex-1">
+                <div className="grid min-h-57.5 grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)] items-stretch gap-4 sm:min-h-0 sm:flex-1">
                   <Reveal delay={230} className="min-h-0">
                     <button
                       type="button"
                       onClick={() => setDetailsOpen(true)}
                       aria-label={`Explore ${destination.name}`}
-                      className="group/image relative block h-full min-h-[230px] w-full overflow-hidden rounded-[15px] bg-[#e8e8e8] dark:bg-[#2a2c2e] sm:min-h-0"
+                      className="group/image relative block h-full min-h-57.5 w-full overflow-hidden rounded-[15px] bg-[#e8e8e8] dark:bg-[#2a2c2e] sm:min-h-0"
                     >
                       <Image
                         src={destination.images.gate}
                         alt="Traditional Balinese temple gate surrounded by mountain scenery"
                         fill
                         sizes="(max-width: 639px) 60vw, (max-width: 1279px) 30vw, 18vw"
-                        className="object-cover object-center transition-transform duration-[1000ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/image:scale-[1.075]"
+                        className="object-cover object-center transition-transform duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/image:scale-[1.075]"
                       />
 
                       <span className="absolute inset-0 bg-black/0 transition-colors duration-500 group-hover/image:bg-black/10" />
@@ -136,7 +132,7 @@ export default function FeaturedDestinations() {
                     >
                       <span className="relative">
                         View Details
-                        <span className="absolute -bottom-[4px] left-0 h-px w-full origin-left scale-x-0 bg-current transition-transform duration-300 group-hover/link:scale-x-100" />
+                        <span className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-current transition-transform duration-300 group-hover/link:scale-x-100" />
                       </span>
 
                       <IoArrowForwardOutline aria-hidden="true" className="text-[16px] transition-transform duration-300 group-hover/link:translate-x-1" />
@@ -150,8 +146,8 @@ export default function FeaturedDestinations() {
       </section>
 
       {detailsOpen && (
-        <div className="fixed inset-0 z-[120] flex items-center justify-center overflow-y-auto px-4 py-8">
-          <button type="button" onClick={() => setDetailsOpen(false)} aria-label="Close destination details" className="absolute inset-0 bg-black/65 backdrop-blur-[4px]" />
+        <div className="fixed inset-0 z-120 flex items-center justify-center overflow-y-auto px-4 py-8">
+          <button type="button" onClick={() => setDetailsOpen(false)} aria-label="Close destination details" className="absolute inset-0 bg-black/65 backdrop-blur-xs" />
 
           <div
             ref={dialogRef}
@@ -159,9 +155,9 @@ export default function FeaturedDestinations() {
             aria-modal="true"
             aria-labelledby="destination-dialog-title"
             aria-describedby="destination-dialog-description"
-            className="relative z-10 my-auto w-full max-w-[620px] overflow-hidden rounded-[18px] bg-white shadow-[0_25px_90px_rgba(0,0,0,0.25)] dark:bg-[#1f2123]"
+            className="relative z-10 my-auto w-full max-w-155 overflow-hidden rounded-[18px] bg-white shadow-[0_25px_90px_rgba(0,0,0,0.25)] dark:bg-[#1f2123]"
           >
-            <div className="relative h-[220px] sm:h-[280px]">
+            <div className="relative h-55 sm:h-70">
               <Image src={destination.images.coast} alt={`Scenic landscape of ${destination.name}`} fill sizes="(max-width: 640px) 100vw, 620px" className="object-cover" />
 
               <button
@@ -181,7 +177,7 @@ export default function FeaturedDestinations() {
                 <span>{destination.location}</span>
               </div>
 
-              <h2 id="destination-dialog-title" className="font-heading mt-3 text-[28px] font-semibold tracking-[-0.05em] text-[#242424] dark:text-white sm:text-[34px]">
+              <h2 id="destination-dialog-title" className="font-heading mt-3 text-[28px] font-semibold tracking-tighter text-[#242424] dark:text-white sm:text-[34px]">
                 {destination.name}
               </h2>
 
@@ -194,7 +190,7 @@ export default function FeaturedDestinations() {
               <ul className="mt-3 space-y-2">
                 {destination.highlights.map((highlight) => (
                   <li key={highlight} className="flex items-start gap-3 text-[14px] leading-[1.6] text-[#777777] dark:text-[#b0b0b0]">
-                    <span aria-hidden="true" className="mt-[9px] h-[5px] w-[5px] shrink-0 rounded-full bg-[#242424] dark:bg-white" />
+                    <span aria-hidden="true" className="mt-2.25 h-1.25 w-1.25 shrink-0 rounded-full bg-[#242424] dark:bg-white" />
                     {highlight}
                   </li>
                 ))}
@@ -203,7 +199,7 @@ export default function FeaturedDestinations() {
               <button
                 type="button"
                 onClick={() => setDetailsOpen(false)}
-                className="mt-7 inline-flex h-[44px] items-center justify-center rounded-[8px] bg-[#242424] px-6 text-[13px] font-medium text-white transition-all duration-300 hover:-translate-y-1 hover:bg-[#454545] hover:shadow-lg active:translate-y-0 dark:bg-white dark:text-[#242424] dark:hover:bg-[#e9e9e9]"
+                className="mt-7 inline-flex h-11 items-center justify-center rounded-lg bg-[#242424] px-6 text-[13px] font-medium text-white transition-all duration-300 hover:-translate-y-1 hover:bg-[#454545] hover:shadow-lg active:translate-y-0 dark:bg-white dark:text-[#242424] dark:hover:bg-[#e9e9e9]"
               >
                 Continue Exploring
               </button>

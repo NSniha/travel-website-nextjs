@@ -29,25 +29,23 @@ export default function TravelExperiences() {
 
   return (
     <>
-      <section id="experiences" aria-labelledby="experiences-heading" className="bg-white py-[75px] transition-colors duration-300 dark:bg-[#101112] sm:py-[90px] lg:py-[100px]">
+      <section id="experiences" aria-labelledby="experiences-heading" className="bg-white py-18.75 transition-colors duration-300 dark:bg-[#101112] sm:py-22.5 lg:py-25">
         <Container>
           <div className="grid items-end gap-5 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,0.85fr)] lg:gap-12">
             <Reveal>
-              <h2 id="experiences-heading" className="font-heading max-w-[650px] text-[29px] leading-[1.25] font-medium tracking-[-0.055em] text-[#242424] dark:text-white sm:text-[35px] lg:text-[clamp(30px,3.2vw,42px)]">
-                Explore Handpicked Destinations
-                <br className="hidden lg:block" />
-                {" "}And Find Your Perfect Escape
-              </h2>
+             <h2 id="experiences-heading" className="font-heading max-w-162.5 text-[30px] leading-[1.2] font-semibold tracking-[-0.055em] text-[#242424] dark:text-white sm:text-[36px] lg:text-[44px]">
+              Explore Handpicked Destinations<br className="hidden lg:block" />{" "}And Find Your Perfect Escape
+            </h2>
             </Reveal>
 
             <Reveal delay={120} className="lg:justify-self-end lg:pb-1">
-              <p className="max-w-[390px] text-[14px] leading-[1.7] text-[#858585] dark:text-[#aaaaaa] sm:text-[16px]">
+              <p className="max-w-97.5 text-[14px] leading-[1.7] text-[#858585] dark:text-[#aaaaaa] sm:text-[16px]">
                 Discover unforgettable journeys, extraordinary places, and experiences that bring every adventure to life.
               </p>
             </Reveal>
           </div>
 
-          <div className="mt-[35px] grid grid-cols-1 gap-[15px] sm:mt-[40px] sm:grid-cols-2 lg:grid-cols-4 lg:gap-[17px]">
+          <div className="mt-8.75 grid grid-cols-1 gap-3.75 sm:mt-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-4.25">
             {travelExperiences.map((experience, index) => {
               const columnClass = index < 2 ? "lg:col-span-2" : index === 2 ? "sm:col-span-2 lg:col-span-2" : "";
 
@@ -57,17 +55,17 @@ export default function TravelExperiences() {
                     type="button"
                     onClick={() => setActiveExperience(experience)}
                     aria-label={`Explore ${experience.title}`}
-                    className="group relative block h-[270px] w-full overflow-hidden rounded-[14px] bg-[#e2e5e4] text-left outline-none transition-shadow duration-500 hover:shadow-[0_15px_35px_rgba(0,0,0,0.12)] focus-visible:ring-2 focus-visible:ring-[#242424] focus-visible:ring-offset-4 dark:bg-[#292c2e] dark:focus-visible:ring-white dark:focus-visible:ring-offset-[#101112] sm:h-[285px] lg:h-[clamp(280px,27.8vw,370px)]"
+                    className="group relative block h-67.5 w-full overflow-hidden rounded-[14px] bg-[#e2e5e4] text-left outline-none transition-shadow duration-500 hover:shadow-[0_15px_35px_rgba(0,0,0,0.12)] focus-visible:ring-2 focus-visible:ring-[#242424] focus-visible:ring-offset-4 dark:bg-[#292c2e] dark:focus-visible:ring-white dark:focus-visible:ring-offset-[#101112] sm:h-71.25 lg:h-[clamp(280px,27.8vw,370px)]"
                   >
                     <Image
                       src={experience.image}
                       alt={`${experience.title} travel experience`}
                       fill
                       sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, (max-width: 1536px) 50vw, 740px"
-                      className="object-cover object-center transition-transform duration-[1000ms] ease-[cubic-bezier(0.22,1,0.36,1)] motion-safe:group-hover:scale-[1.065]"
+                      className="object-cover object-center transition-transform duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)] motion-safe:group-hover:scale-[1.065]"
                     />
 
-                    <span className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-colors duration-500" />
+                    <span className="absolute inset-0 bg-linear-to-t from-black/75 via-black/15 to-transparent transition-colors duration-500" />
 
                     <span className="absolute inset-0 bg-black/0 transition-colors duration-500 group-hover:bg-black/10" />
 
@@ -75,12 +73,12 @@ export default function TravelExperiences() {
                       <IoArrowForwardOutline aria-hidden="true" className="text-[18px]" />
                     </span>
 
-                    <span className="absolute right-0 bottom-0 left-0 block px-[18px] pb-[19px] text-white sm:px-[20px] sm:pb-[21px]">
+                    <span className="absolute right-0 bottom-0 left-0 block px-4.5 pb-4.75 text-white sm:px-5 sm:pb-5.25">
                       <span className="font-heading block text-[19px] leading-[1.3] font-semibold tracking-[-0.035em] transition-transform duration-500 motion-safe:group-hover:-translate-y-1 sm:text-[20px]">
                         {experience.title}
                       </span>
 
-                      <span className="mt-[6px] block max-w-[420px] text-[13px] leading-[1.55] font-normal text-white/90 sm:text-[14px]">
+                      <span className="mt-1.5 block max-w-105 text-[13px] leading-[1.55] font-normal text-white/90 sm:text-[14px]">
                         {experience.description}
                       </span>
                     </span>
@@ -99,11 +97,11 @@ export default function TravelExperiences() {
         onClick={(event) => {
           if (event.target === event.currentTarget) closeDetails();
         }}
-        className="fixed inset-0 m-auto max-h-[calc(100dvh-32px)] w-[calc(100%-32px)] max-w-[590px] overflow-y-auto rounded-[18px] bg-white p-0 text-[#242424] shadow-[0_25px_90px_rgba(0,0,0,0.25)] backdrop:bg-black/65 backdrop:backdrop-blur-[4px] dark:bg-[#1e2022] dark:text-white"
+        className="fixed inset-0 m-auto max-h-[calc(100dvh-32px)] w-[calc(100%-32px)] max-w-147.5 overflow-y-auto rounded-[18px] bg-white p-0 text-[#242424] shadow-[0_25px_90px_rgba(0,0,0,0.25)] backdrop:bg-black/65 backdrop:backdrop-blur-xs dark:bg-[#1e2022] dark:text-white"
       >
         {activeExperience && (
           <div>
-            <div className="relative h-[220px] sm:h-[275px]">
+            <div className="relative h-55 sm:h-68.75">
               <Image src={activeExperience.image} alt={activeExperience.title} fill sizes="(max-width: 640px) 100vw, 590px" className="object-cover" />
 
               <button
@@ -122,7 +120,7 @@ export default function TravelExperiences() {
                 <span>WAYLUME Experiences</span>
               </div>
 
-              <h2 id="experience-dialog-title" className="font-heading mt-3 text-[27px] leading-[1.2] font-semibold tracking-[-0.05em] sm:text-[32px]">
+              <h2 id="experience-dialog-title" className="font-heading mt-3 text-[27px] leading-[1.2] font-semibold tracking-tighter sm:text-[32px]">
                 {activeExperience.title}
               </h2>
 
@@ -135,7 +133,7 @@ export default function TravelExperiences() {
               <ul className="mt-3 space-y-3">
                 {activeExperience.highlights.map((highlight) => (
                   <li key={highlight} className="flex items-start gap-3 text-[14px] leading-[1.6] text-[#777777] dark:text-[#b0b0b0]">
-                    <span aria-hidden="true" className="mt-[9px] h-[5px] w-[5px] shrink-0 rounded-full bg-[#242424] dark:bg-white" />
+                    <span aria-hidden="true" className="mt-2.25 h-1.25 w-1.25 shrink-0 rounded-full bg-[#242424] dark:bg-white" />
                     <span>{highlight}</span>
                   </li>
                 ))}
@@ -144,7 +142,7 @@ export default function TravelExperiences() {
               <button
                 type="button"
                 onClick={closeDetails}
-                className="mt-7 inline-flex h-[43px] items-center justify-center rounded-[8px] bg-[#242424] px-6 text-[13px] font-medium text-white transition-all duration-300 hover:-translate-y-1 hover:bg-[#454545] active:translate-y-0 dark:bg-white dark:text-[#242424] dark:hover:bg-[#e9e9e9]"
+                className="mt-7 inline-flex h-10.75 items-center justify-center rounded-lg bg-[#242424] px-6 text-[13px] font-medium text-white transition-all duration-300 hover:-translate-y-1 hover:bg-[#454545] active:translate-y-0 dark:bg-white dark:text-[#242424] dark:hover:bg-[#e9e9e9]"
               >
                 Continue Exploring
               </button>

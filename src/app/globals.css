@@ -111,3 +111,28 @@ button {
     transition-duration: 0.01ms !important;
   }
 }
+
+@keyframes waylumeTestimonialZoom {
+  0%,
+  100% {
+    transform: scale(1.04);
+  }
+
+  50% {
+    transform: scale(1.14);
+  }
+}
+
+.waylume-testimonial-zoom {
+  animation: waylumeTestimonialZoom 18s ease-in-out infinite;
+  transform-origin: center center;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .waylume-testimonial-zoom {
+    animation: none;
+    transform: scale(1.04);
+    will-change: auto;
+  }
+}

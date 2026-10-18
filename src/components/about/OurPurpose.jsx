@@ -13,7 +13,7 @@ const statistics = [
 
 export default function OurPurpose() {
   return (
-    <section id="our-purpose" aria-labelledby="our-purpose-heading" className="bg-white pt-10 pb-14 transition-colors duration-300 dark:bg-[#101112] sm:pt-12 sm:pb-16 lg:pt-16 lg:pb-20">
+    <section id="our-purpose" aria-labelledby="our-purpose-heading" className="bg-white pt-10 pb-14 transition-colors duration-300 dark:bg-[#101112] sm:pt-12 sm:pb-16 lg:pt-14 lg:pb-14">
       <Container>
         <div className="grid min-w-0 items-start gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-14 xl:gap-20">
           <Reveal className="min-w-0">

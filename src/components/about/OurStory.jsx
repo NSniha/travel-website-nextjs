@@ -15,7 +15,7 @@ export default function OurStory() {
   };
 
   return (
-    <section id="our-story" aria-labelledby="our-story-heading" className="bg-white pt-12 pb-22 transition-colors duration-300 dark:bg-[#101112] sm:pt-16 sm:pb-26 lg:pt-16 lg:pb-16">
+    <section id="our-story" aria-labelledby="our-story-heading" className="bg-white pt-12 pb-22 transition-colors duration-300 dark:bg-[#101112] sm:pt-16 sm:pb-26 lg:pt-14 lg:pb-30">
       <Container>
         <div className="grid min-w-0 items-start gap-12 lg:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)] lg:gap-10 xl:gap-14">
           <div className="min-w-0">

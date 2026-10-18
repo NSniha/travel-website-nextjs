@@ -2,6 +2,7 @@ import AboutHero from "@/components/about/AboutHero";
 import OurPurpose from "@/components/about/OurPurpose";
 import BrandStrip from "@/components/about/BrandStrip";
 import OurStory from "@/components/about/OurStory";
+import WhyChooseUs from "@/components/about/WhyChooseUs";
 
 
 import Footer from "@/components/layout/Footer";
@@ -18,6 +19,7 @@ export default function AboutPage() {
       <OurPurpose />
       <BrandStrip />
       <OurStory />
+      <WhyChooseUs />
 
       <Footer />
     </main>

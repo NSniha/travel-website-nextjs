@@ -3,8 +3,7 @@ import OurPurpose from "@/components/about/OurPurpose";
 import BrandStrip from "@/components/about/BrandStrip";
 import OurStory from "@/components/about/OurStory";
 import WhyChooseUs from "@/components/about/WhyChooseUs";
-
-
+import OurTeam from "@/components/about/OurTeam";
 import Footer from "@/components/layout/Footer";
 
 export const metadata = {
@@ -20,7 +19,7 @@ export default function AboutPage() {
       <BrandStrip />
       <OurStory />
       <WhyChooseUs />
-
+      <OurTeam />
       <Footer />
     </main>
   );

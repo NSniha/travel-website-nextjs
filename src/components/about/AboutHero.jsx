@@ -50,7 +50,7 @@ export default function AboutHero() {
 
   return (
     <>
-      <section id="about-hero" aria-labelledby="about-hero-heading" className="bg-white pt-9 pb-20 transition-colors duration-300 dark:bg-[#101112] sm:pt-12 sm:pb-24 lg:pt-14 lg:pb-28">
+      <section id="about-hero" aria-labelledby="about-hero-heading" className="bg-white pt-9 pb-20 transition-colors duration-300 dark:bg-[#101112] sm:pt-12 sm:pb-24 lg:pt-14 lg:pb-12">
         <Container>
           <div className="grid min-w-0 items-end gap-7 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.9fr)] lg:gap-12 xl:gap-16">
             <Reveal className="min-w-0">

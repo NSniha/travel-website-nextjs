@@ -136,3 +136,30 @@ button {
     will-change: auto;
   }
 }
+
+
+@keyframes waylumeBrandMarquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.waylume-brand-track {
+  animation: waylumeBrandMarquee 28s linear infinite;
+  will-change: transform;
+}
+
+.waylume-brand-marquee:hover .waylume-brand-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .waylume-brand-track {
+    animation: none;
+    will-change: auto;
+  }
+}

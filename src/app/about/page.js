@@ -1,4 +1,8 @@
 import AboutHero from "@/components/about/AboutHero";
+import OurPurpose from "@/components/about/OurPurpose";
+import BrandStrip from "@/components/about/BrandStrip";
+
+import Footer from "@/components/layout/Footer";
 
 export const metadata = {
   title: "About Us",
@@ -9,6 +13,11 @@ export default function AboutPage() {
   return (
     <main>
       <AboutHero />
+      <OurPurpose />
+      <BrandStrip />
+
+
+      <Footer />
     </main>
   );
 }

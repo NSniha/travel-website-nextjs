@@ -1,6 +1,8 @@
 import AboutHero from "@/components/about/AboutHero";
 import OurPurpose from "@/components/about/OurPurpose";
 import BrandStrip from "@/components/about/BrandStrip";
+import OurStory from "@/components/about/OurStory";
+
 
 import Footer from "@/components/layout/Footer";
 
@@ -15,7 +17,7 @@ export default function AboutPage() {
       <AboutHero />
       <OurPurpose />
       <BrandStrip />
-
+      <OurStory />
 
       <Footer />
     </main>

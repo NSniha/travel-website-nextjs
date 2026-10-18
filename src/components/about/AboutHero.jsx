@@ -50,9 +50,9 @@ export default function AboutHero() {
 
   return (
     <>
-      <section id="about-hero" aria-labelledby="about-hero-heading" className="bg-white pt-9 pb-20 transition-colors duration-300 dark:bg-[#101112] sm:pt-12 sm:pb-24 lg:pt-14 lg:pb-12">
+      <section id="about-hero" aria-labelledby="about-hero-heading" className="bg-white pt-9 pb-16 transition-colors duration-300 dark:bg-[#101112] sm:pt-12 sm:pb-20 lg:pt-14 lg:pb-24">
         <Container>
-          <div className="grid min-w-0 items-end gap-7 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.9fr)] lg:gap-12 xl:gap-16">
+          <div className="grid min-w-0 items-end gap-7 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-12 xl:gap-16">
             <Reveal className="min-w-0">
               <h1 id="about-hero-heading" className="font-heading max-w-220 text-[clamp(37px,7vw,60px)] leading-[1.085] font-medium tracking-[-0.06em] text-[#242424] dark:text-white sm:text-[clamp(48px,6vw,68px)] lg:text-[clamp(56px,4.9vw,78px)]">
                 <span className="block">Beyond the Map,</span>

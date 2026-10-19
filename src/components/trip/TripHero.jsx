@@ -34,7 +34,7 @@ export default function TripHero({ title = tripHero.title, description = tripHer
               priority
               quality={90}
               sizes="(max-width: 640px) 100vw, (max-width: 1536px) 95vw, 1490px"
-              className="object-cover object-center transition-transform duration-[1400ms] ease-[cubic-bezier(0.22,1,0.36,1)] motion-safe:group-hover:scale-[1.035]"
+              className="object-cover object-top transition-transform duration-1400 ease-[cubic-bezier(0.22,1,0.36,1)] motion-safe:group-hover:scale-[1.035]"
             />
 
             <div className="pointer-events-none absolute inset-0 bg-black/0 transition-colors duration-700 group-hover:bg-black/5" />

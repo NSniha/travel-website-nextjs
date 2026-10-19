@@ -15,7 +15,7 @@ function CategoryCard({ category, index, activeCategoryId }) {
         href={href}
         aria-label={`${isActive ? "Clear" : "Explore"} ${category.title} category`}
         aria-current={isActive ? "page" : undefined}
-        className={`group relative isolate block h-[300px] w-full overflow-hidden rounded-2xl bg-[#dce2df] outline-none transition-[box-shadow,transform] duration-500 hover:shadow-[0_16px_40px_rgba(0,0,0,0.15)] focus-visible:ring-2 focus-visible:ring-[#242424] focus-visible:ring-offset-4 dark:bg-[#292c2e] dark:focus-visible:ring-white dark:focus-visible:ring-offset-[#101112] sm:h-[320px] lg:h-[clamp(300px,26vw,385px)] ${isActive ? "ring-2 ring-[#242424] ring-offset-4 dark:ring-white dark:ring-offset-[#101112]" : ""}`}
+        className={`group relative isolate block h-75 w-full overflow-hidden rounded-2xl bg-[#dce2df] outline-none transition-[box-shadow,transform] duration-500 hover:shadow-[0_16px_40px_rgba(0,0,0,0.15)] focus-visible:ring-2 focus-visible:ring-[#242424] focus-visible:ring-offset-4 dark:bg-[#292c2e] dark:focus-visible:ring-white dark:focus-visible:ring-offset-[#101112] sm:h-80 lg:h-[clamp(300px,26vw,385px)] ${isActive ? "ring-2 ring-[#242424] ring-offset-4 dark:ring-white dark:ring-offset-[#101112]" : ""}`}
       >
         <Image
           src={category.image}
@@ -23,7 +23,7 @@ function CategoryCard({ category, index, activeCategoryId }) {
           fill
           quality={90}
           sizes={index < 3 ? "(max-width: 639px) 100vw, (max-width: 1023px) 95vw, 50vw" : "(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 25vw"}
-          className="object-cover object-center transition-transform duration-[1200ms] ease-[cubic-bezier(0.22,1,0.36,1)] motion-safe:group-hover:scale-[1.065]"
+          className="object-cover object-center transition-transform duration-1200 ease-[cubic-bezier(0.22,1,0.36,1)] motion-safe:group-hover:scale-[1.065]"
         />
 
         <span className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/85 via-black/10 to-transparent" />
@@ -34,11 +34,11 @@ function CategoryCard({ category, index, activeCategoryId }) {
         </span>
 
         <div className="absolute inset-x-0 bottom-0 z-10 p-5 text-white sm:p-6 lg:p-6 xl:p-7">
-          <h3 className="font-heading text-[21px] leading-[1.25] font-semibold tracking-[-0.04em] sm:text-[23px] lg:text-[22px] xl:text-[24px]">
+          <h3 className="font-heading text-[21px] leading-tight font-semibold tracking-[-0.04em] sm:text-[23px] lg:text-[22px] xl:text-[24px]">
             {category.title}
           </h3>
 
-          <p className="mt-2 max-w-[510px] text-[13px] leading-[1.65] font-normal text-white/90 sm:text-[14px] xl:text-[15px]">
+          <p className="mt-2 max-w-127.5 text-[13px] leading-[1.65] font-normal text-white/90 sm:text-[14px] xl:text-[15px]">
             {category.description}
           </p>
 
@@ -60,13 +60,13 @@ export default function TripCategories({ activeCategoryId = null }) {
       <Container>
         <div className="grid min-w-0 items-end gap-5 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-12 xl:gap-16">
           <Reveal className="min-w-0">
-            <h2 id="trip-categories-heading" className="font-heading max-w-[750px] text-[30px] leading-[1.2] font-semibold tracking-[-0.055em] text-[#242424] dark:text-white sm:text-[36px] lg:text-[44px]">
+            <h2 id="trip-categories-heading" className="font-heading max-w-187.5 text-[30px] leading-[1.2] font-semibold tracking-[-0.055em] text-[#242424] dark:text-white sm:text-[36px] lg:text-[44px]">
               Explore Journeys Made for<br className="hidden lg:block" /> Every Kind of Traveler
             </h2>
           </Reveal>
 
           <Reveal delay={120} className="min-w-0 lg:justify-self-end lg:pb-1">
-            <p className="max-w-[520px] text-[14px] leading-[1.75] font-normal text-[#858585] dark:text-[#aaaaaa] sm:text-[16px]">
+            <p className="max-w-130 text-[14px] leading-[1.75] font-normal text-[#858585] dark:text-[#aaaaaa] sm:text-[16px]">
               From peaceful escapes to extraordinary adventures, discover experiences that inspire the way you explore.
             </p>
           </Reveal>

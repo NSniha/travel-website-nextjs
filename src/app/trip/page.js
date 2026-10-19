@@ -1,4 +1,5 @@
 import TripHero from "@/components/trip/TripHero";
+import TripCategories from "@/components/trip/TripCategories";
 import Footer from "@/components/layout/Footer";
 
 export const metadata = {
@@ -10,6 +11,7 @@ export default function TripPage() {
   return (
     <main>
       <TripHero />
+      <TripCategories />
       <Footer />
     </main>
   );

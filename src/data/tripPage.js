@@ -48,3 +48,51 @@ export const tripCategories = [
     alt: "Breathtaking tropical island surrounded by turquoise ocean waters",
   },
 ];
+
+
+export const tripActivities = [
+  {
+    id: "sailing",
+    title: "Sunset Sailing",
+    description: "Sail across peaceful waters and discover the magic of golden-hour horizons.",
+    image: "/images/trip/activities/coastal-sailing.jpg",
+    imageAlt: "Sailboat floating on calm ocean waters during a beautiful sunset",
+    categorySlug: "island-hideaways",
+    categoryName: "Island Hideaways",
+    details: "Experience the extraordinary beauty of the coastline as the sun slowly disappears beyond the horizon. Discover peaceful ocean views, refreshing sea breezes, and unforgettable moments on the water.",
+    highlights: ["Beautiful sunset views", "Scenic coastal landscapes", "Relaxing sailing experiences"],
+  },
+  {
+    id: "cultural",
+    title: "Cultural Immersion",
+    description: "Explore vibrant traditions and discover the stories behind every culture.",
+    image: "/images/trip/activities/cultural-discovery.jpg",
+    imageAlt: "Traditional cultural performer wearing a colorful ceremonial costume",
+    categorySlug: "cultural-encounters",
+    categoryName: "Cultural Encounters",
+    details: "Step into a world of fascinating traditions, vibrant celebrations, and meaningful cultural discoveries. Explore the customs, creativity, and stories that give every destination its unique identity.",
+    highlights: ["Traditional celebrations", "Local art and heritage", "Meaningful cultural encounters"],
+  },
+  {
+    id: "trekking",
+    title: "Forest Trekking",
+    description: "Follow scenic trails and uncover the hidden wonders of the natural world.",
+    image: "/images/trip/activities/mountain-trekking.jpg",
+    imageAlt: "Traveler hiking along a beautiful forest trail surrounded by tall evergreen trees",
+    categorySlug: "adventure-escapes",
+    categoryName: "Wild Horizons",
+    details: "Leave the familiar behind and explore breathtaking forest trails, peaceful mountain paths, and extraordinary natural landscapes. Every step brings a new perspective and a deeper connection with nature.",
+    highlights: ["Scenic hiking trails", "Mountain and forest landscapes", "Outdoor exploration"],
+  },
+  {
+    id: "wildlife",
+    title: "Wildlife Safaris",
+    description: "Witness remarkable wildlife and discover nature in its purest form.",
+    image: "/images/trip/activities/wildlife-encounters.jpg",
+    imageAlt: "Lion resting with a young cub in a peaceful natural environment",
+    categorySlug: "adventure-escapes",
+    categoryName: "Wild Horizons",
+    details: "Discover the incredible diversity of the natural world through responsible wildlife experiences. Observe fascinating animals, explore beautiful habitats, and appreciate the importance of protecting our planet.",
+    highlights: ["Wildlife observation", "Natural habitat exploration", "Responsible nature experiences"],
+  },
+];

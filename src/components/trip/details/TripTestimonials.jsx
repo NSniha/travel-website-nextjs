@@ -63,7 +63,7 @@ function TestimonialCard({ review, index }) {
 
   return (
     <Reveal delay={(index % 3) * 90}>
-      <article className="group min-w-0 rounded-[12px] border border-[#eaeaea] bg-white px-5 py-5.5 transition-[border-color,box-shadow,transform] duration-500 hover:-translate-y-0.5 hover:border-[#d5d5d5] hover:shadow-[0_12px_35px_rgba(0,0,0,0.045)] dark:border-white/10 dark:bg-[#191b1d] dark:hover:border-white/20 dark:hover:shadow-[0_12px_35px_rgba(0,0,0,0.12)] sm:px-6.5 sm:py-6">
+      <article className="group min-w-0 rounded-xl border border-[#eaeaea] bg-white px-5 py-5.5 transition-[border-color,box-shadow,transform] duration-500 hover:-translate-y-0.5 hover:border-[#d5d5d5] hover:shadow-[0_12px_35px_rgba(0,0,0,0.045)] dark:border-white/10 dark:bg-[#191b1d] dark:hover:border-white/20 dark:hover:shadow-[0_12px_35px_rgba(0,0,0,0.12)] sm:px-6.5 sm:py-6">
         {/* Reviewer Information */}
 
         <div className="flex min-w-0 items-center gap-3.5">
@@ -87,11 +87,11 @@ function TestimonialCard({ review, index }) {
           </div>
 
           <div className="min-w-0 flex-1">
-            <h3 className="font-heading text-[14px] leading-[1.35] font-semibold tracking-[-0.025em] text-[#292929] dark:text-white sm:text-[15px]">
+            <h3 className="font-heading text-[14px] leading-[1.35] font-semibold tracking-tight text-[#292929] dark:text-white sm:text-[15px]">
               {review.name}
             </h3>
 
-            <p className="mt-1 text-[12px] leading-[1.5] text-[#999999] dark:text-[#aaaaaa]">
+            <p className="mt-1 text-[12px] leading-normal text-[#999999] dark:text-[#aaaaaa]">
               {review.country}
             </p>
           </div>
@@ -113,7 +113,7 @@ function TestimonialCard({ review, index }) {
           <div className="flex flex-wrap items-center gap-2.5">
             <ReviewStars rating={review.rating} />
 
-            <span className="text-[11px] leading-[1.5] text-[#999999] dark:text-[#aaaaaa] sm:text-[12px]">
+            <span className="text-[11px] leading-normal text-[#999999] dark:text-[#aaaaaa] sm:text-[12px]">
               ({Math.min(5, Math.max(0, Number(review.rating) || 0)).toFixed(1)}/5)
             </span>
           </div>

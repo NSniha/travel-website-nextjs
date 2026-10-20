@@ -67,7 +67,7 @@ export default function TripActivities({ trip, details }) {
             Description
           </h2>
 
-          <p className="mt-4 max-w-[790px] text-[13px] leading-[1.9] font-normal text-[#777777] dark:text-[#b0b0b0] sm:text-[14px] lg:text-[15px]">
+          <p className="mt-4 max-w-197.5 text-[13px] leading-[1.9] font-normal text-[#777777] dark:text-[#b0b0b0] sm:text-[14px] lg:text-[15px]">
             {description}
           </p>
         </Reveal>
@@ -127,7 +127,7 @@ export default function TripActivities({ trip, details }) {
                   {!isLast && (
                     <span
                       aria-hidden="true"
-                      className="pointer-events-none absolute top-4 bottom-0 left-[5px] w-px bg-[#dcdcdc] dark:bg-white/20"
+                      className="pointer-events-none absolute top-4 bottom-0 left-1.25 w-px bg-[#dcdcdc] dark:bg-white/20"
                     />
                   )}
 
@@ -135,7 +135,7 @@ export default function TripActivities({ trip, details }) {
 
                   <span
                     aria-hidden="true"
-                    className={`absolute top-[5px] left-0 flex h-[11px] w-[11px] items-center justify-center rounded-full border-2 transition-all duration-300 ${
+                    className={`absolute top-1.25 left-0 flex h-2.75 w-2.75 items-center justify-center rounded-full border-2 transition-all duration-300 ${
                       isExpanded
                         ? "border-[#242424] bg-[#242424] dark:border-white dark:bg-white"
                         : "border-[#a5a5a5] bg-white dark:border-[#858585] dark:bg-[#101112]"
@@ -153,7 +153,7 @@ export default function TripActivities({ trip, details }) {
                       onClick={() => toggleActivity(activityId)}
                       className="group flex w-full min-w-0 items-start justify-between gap-4 rounded-sm text-left outline-none focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#242424] dark:focus-visible:outline-white"
                     >
-                      <span className="font-heading min-w-0 text-[14px] leading-[1.55] font-semibold tracking-[-0.025em] text-[#292929] transition-colors duration-300 group-hover:text-[#777777] dark:text-white dark:group-hover:text-[#cccccc] sm:text-[15px]">
+                      <span className="font-heading min-w-0 text-[14px] leading-[1.55] font-semibold tracking-tight text-[#292929] transition-colors duration-300 group-hover:text-[#777777] dark:text-white dark:group-hover:text-[#cccccc] sm:text-[15px]">
                         {activity.title}
                       </span>
 
@@ -179,7 +179,7 @@ export default function TripActivities({ trip, details }) {
                       }`}
                     >
                       <div className="min-h-0 overflow-hidden">
-                        <p className="max-w-[720px] pt-2.5 text-[13px] leading-[1.8] font-normal text-[#858585] dark:text-[#aaaaaa] sm:pt-3 sm:text-[14px]">
+                        <p className="max-w-180 pt-2.5 text-[13px] leading-[1.8] font-normal text-[#858585] dark:text-[#aaaaaa] sm:pt-3 sm:text-[14px]">
                           {activity.description}
                         </p>
 

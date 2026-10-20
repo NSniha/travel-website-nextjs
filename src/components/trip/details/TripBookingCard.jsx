@@ -81,7 +81,7 @@ export default function TripBookingCard({ trip, details }) {
       <div>
         <span
           id="trip-booking-heading"
-          className="block text-[12px] leading-[1.5] font-normal text-[#858585] dark:text-[#aaaaaa] sm:text-[13px]"
+          className="block text-[12px] leading-normal font-normal text-[#858585] dark:text-[#aaaaaa] sm:text-[13px]"
         >
           Starting at
         </span>
@@ -105,7 +105,7 @@ export default function TripBookingCard({ trip, details }) {
             ))}
           </div>
 
-          <span className="text-[11px] leading-[1.5] text-[#858585] dark:text-[#aaaaaa]">
+          <span className="text-[11px] leading-normal text-[#858585] dark:text-[#aaaaaa]">
             Illustrative rating · Preview only
           </span>
         </div>
@@ -124,7 +124,7 @@ export default function TripBookingCard({ trip, details }) {
               Destination
             </span>
 
-            <p className="mt-1 text-[13px] leading-[1.5] font-medium text-[#292929] dark:text-white">
+            <p className="mt-1 text-[13px] leading-normal font-medium text-[#292929] dark:text-white">
               {trip.location}
             </p>
           </div>
@@ -151,7 +151,7 @@ export default function TripBookingCard({ trip, details }) {
       {/* Travel Dates */}
       <div className="mt-6 border-t border-[#ececec] pt-6 dark:border-white/10">
         <div className="flex items-center justify-between gap-3">
-          <h3 className="font-heading text-[15px] font-semibold tracking-[-0.025em] text-[#242424] dark:text-white">
+          <h3 className="font-heading text-[15px] font-semibold tracking-tight text-[#242424] dark:text-white">
             Dates
           </h3>
 
@@ -244,7 +244,7 @@ export default function TripBookingCard({ trip, details }) {
       {/* Facilities */}
       {facilities.length > 0 && (
         <div className="mt-7 border-t border-[#ececec] pt-6 dark:border-white/10">
-          <h3 className="font-heading text-[15px] font-semibold tracking-[-0.025em] text-[#242424] dark:text-white">
+          <h3 className="font-heading text-[15px] font-semibold tracking-tight text-[#242424] dark:text-white">
             Facilities
           </h3>
 
@@ -270,7 +270,7 @@ export default function TripBookingCard({ trip, details }) {
       <div className="mt-7 border-t border-[#ececec] pt-6 dark:border-white/10">
         <Link
           href={contactHref}
-          className="group relative flex h-12 w-full items-center justify-center gap-3 overflow-hidden rounded-[8px] bg-[#242424] px-5 text-[13px] font-medium text-white shadow-[0_5px_18px_rgba(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_28px_rgba(0,0,0,0.13)] focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#242424] dark:bg-white dark:text-[#242424] dark:focus-visible:outline-white"
+          className="group relative flex h-12 w-full items-center justify-center gap-3 overflow-hidden rounded-lg bg-[#242424] px-5 text-[13px] font-medium text-white shadow-[0_5px_18px_rgba(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_28px_rgba(0,0,0,0.13)] focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#242424] dark:bg-white dark:text-[#242424] dark:focus-visible:outline-white"
         >
           <span className="absolute inset-0 -translate-x-full bg-[#454545] transition-transform duration-500 ease-out group-hover:translate-x-0 dark:bg-[#e8e8e8]" />
 

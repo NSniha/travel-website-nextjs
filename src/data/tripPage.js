@@ -160,3 +160,20 @@ export const popularDestinations = [
     categorySlug: "family-adventures",
   },
 ];
+
+
+export const tripOffer = {
+  title: "Discover Remarkable Travel Deals Designed for You",
+  description: "Explore inspiring getaway ideas, extraordinary destinations, and thoughtful travel opportunities for your next adventure.",
+  badge: "A new way to explore extraordinary places",
+  heading: ["Go Further,", "Spend Less."],
+  discountLabel: "Featured offer concept",
+  discount: 40,
+  note: "Preview promotion — final discounts, pricing, and availability are yet to be confirmed.",
+  buttonText: "Explore Now",
+  buttonHref: "/trip/category/adventure-escapes",
+  image: "/images/trip/travel-offer.jpg",
+  imageAlt: "Beautiful green mountain valleys surrounded by forests and morning mist",
+};
+
+

@@ -2,6 +2,8 @@ import TripHero from "@/components/trip/TripHero";
 import TripCategories from "@/components/trip/TripCategories";
 import TripActivities from "@/components/trip/TripActivities";
 import PopularDestinations from "@/components/trip/PopularDestinations";
+import TripOffer from "@/components/trip/TripOffer";
+import TripExplorer from "@/components/trip/TripExplorer";
 import Footer from "@/components/layout/Footer";
 
 export const metadata = {
@@ -16,6 +18,8 @@ export default function TripPage() {
       <TripCategories />
       <TripActivities />
       <PopularDestinations />
+      <TripOffer />
+      <TripExplorer />
       <Footer />
     </main>
   );

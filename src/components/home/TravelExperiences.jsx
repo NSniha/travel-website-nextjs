@@ -2,14 +2,43 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { IoArrowForwardOutline, IoCloseOutline, IoCompassOutline } from "react-icons/io5";
 import Container from "@/components/shared/Container";
 import Reveal from "@/components/shared/Reveal";
 import { travelExperiences } from "@/data/home";
+import { tripCategories } from "@/data/tripPage";
+
+const categoryKeywords = {
+  family: ["family"],
+  romantic: ["romantic", "couple", "two-person"],
+  adventure: ["adventure", "wild horizons", "trekking"],
+  cultural: ["cultural", "culture", "heritage"],
+  island: ["island", "tropical", "beach retreat"],
+};
+
+function getExperienceCategory(experience) {
+  const explicitCategory = tripCategories.find(
+    (category) => category.id === experience.categoryId || category.slug === experience.categorySlug,
+  );
+
+  if (explicitCategory) return explicitCategory;
+
+  const searchText = `${experience.id ?? ""} ${experience.title ?? ""}`.toLowerCase();
+
+  return (
+    tripCategories.find((category) =>
+      categoryKeywords[category.id]?.some((keyword) => searchText.includes(keyword)),
+    ) || null
+  );
+}
 
 export default function TravelExperiences() {
   const [activeExperience, setActiveExperience] = useState(null);
   const dialogRef = useRef(null);
+
+  const selectedCategory = activeExperience ? getExperienceCategory(activeExperience) : null;
+  const categoryHref = selectedCategory ? `/trip/category/${selectedCategory.slug}` : "/trip#all-trips";
 
   useEffect(() => {
     const dialog = dialogRef.current;
@@ -17,7 +46,8 @@ export default function TravelExperiences() {
 
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
-    dialog.showModal();
+
+    if (!dialog.open) dialog.showModal();
 
     return () => {
       if (dialog.open) dialog.close();
@@ -33,9 +63,9 @@ export default function TravelExperiences() {
         <Container>
           <div className="grid items-end gap-5 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,0.85fr)] lg:gap-12">
             <Reveal>
-             <h2 id="experiences-heading" className="font-heading max-w-162.5 text-[30px] leading-[1.2] font-semibold tracking-[-0.055em] text-[#242424] dark:text-white sm:text-[36px] lg:text-[44px]">
-              Explore Handpicked Destinations<br className="hidden lg:block" />{" "}And Find Your Perfect Escape
-            </h2>
+              <h2 id="experiences-heading" className="font-heading max-w-162.5 text-[30px] leading-[1.2] font-semibold tracking-[-0.055em] text-[#242424] dark:text-white sm:text-[36px] lg:text-[40px]">
+                Explore Handpicked Destinations<br className="hidden lg:block" />{" "}And Find Your Perfect Escape
+              </h2>
             </Reveal>
 
             <Reveal delay={120} className="lg:justify-self-end lg:pb-1">
@@ -55,6 +85,7 @@ export default function TravelExperiences() {
                     type="button"
                     onClick={() => setActiveExperience(experience)}
                     aria-label={`Explore ${experience.title}`}
+                    aria-haspopup="dialog"
                     className="group relative block h-67.5 w-full overflow-hidden rounded-[14px] bg-[#e2e5e4] text-left outline-none transition-shadow duration-500 hover:shadow-[0_15px_35px_rgba(0,0,0,0.12)] focus-visible:ring-2 focus-visible:ring-[#242424] focus-visible:ring-offset-4 dark:bg-[#292c2e] dark:focus-visible:ring-white dark:focus-visible:ring-offset-[#101112] sm:h-71.25 lg:h-[clamp(280px,27.8vw,370px)]"
                   >
                     <Image
@@ -65,7 +96,7 @@ export default function TravelExperiences() {
                       className="object-cover object-center transition-transform duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)] motion-safe:group-hover:scale-[1.065]"
                     />
 
-                    <span className="absolute inset-0 bg-linear-to-t from-black/75 via-black/15 to-transparent transition-colors duration-500" />
+                    <span className="absolute inset-0 bg-linear-to-t from-black/75 via-black/15 to-transparent" />
 
                     <span className="absolute inset-0 bg-black/0 transition-colors duration-500 group-hover:bg-black/10" />
 
@@ -93,6 +124,7 @@ export default function TravelExperiences() {
       <dialog
         ref={dialogRef}
         aria-labelledby="experience-dialog-title"
+        aria-describedby="experience-dialog-description"
         onClose={() => setActiveExperience(null)}
         onClick={(event) => {
           if (event.target === event.currentTarget) closeDetails();
@@ -101,8 +133,16 @@ export default function TravelExperiences() {
       >
         {activeExperience && (
           <div>
-            <div className="relative h-55 sm:h-68.75">
-              <Image src={activeExperience.image} alt={activeExperience.title} fill sizes="(max-width: 640px) 100vw, 590px" className="object-cover" />
+            <div className="relative h-55 overflow-hidden bg-[#e2e5e4] dark:bg-[#292c2e] sm:h-68.75">
+              <Image
+                src={activeExperience.image}
+                alt={activeExperience.title}
+                fill
+                sizes="(max-width: 640px) 100vw, 590px"
+                className="object-cover object-center"
+              />
+
+              <div className="absolute inset-0 bg-linear-to-t from-black/25 to-transparent" />
 
               <button
                 type="button"
@@ -110,7 +150,7 @@ export default function TravelExperiences() {
                 aria-label="Close experience details"
                 className="absolute top-4 right-4 flex h-10 w-10 items-center justify-center rounded-full bg-white text-[#242424] shadow-md transition-all duration-300 hover:rotate-90 hover:bg-[#f0f0f0]"
               >
-                <IoCloseOutline className="text-[23px]" />
+                <IoCloseOutline aria-hidden="true" className="text-[23px]" />
               </button>
             </div>
 
@@ -120,32 +160,69 @@ export default function TravelExperiences() {
                 <span>WAYLUME Experiences</span>
               </div>
 
-              <h2 id="experience-dialog-title" className="font-heading mt-3 text-[27px] leading-[1.2] font-semibold tracking-tighter sm:text-[32px]">
+              <h2 id="experience-dialog-title" className="font-heading mt-3 text-[27px] leading-[1.2] font-semibold tracking-[-0.055em] text-[#242424] dark:text-white sm:text-[32px]">
                 {activeExperience.title}
               </h2>
 
-              <p className="mt-4 text-[14px] leading-[1.8] text-[#777777] dark:text-[#b0b0b0] sm:text-[15px]">
+              <p id="experience-dialog-description" className="mt-4 text-[14px] leading-[1.8] text-[#777777] dark:text-[#b0b0b0] sm:text-[15px]">
                 {activeExperience.details}
               </p>
 
-              <h3 className="mt-6 text-[15px] font-semibold">Experience Highlights</h3>
+              <div className="mt-6 border-t border-[#eeeeee] pt-5 dark:border-white/10">
+                <h3 className="text-[15px] font-semibold text-[#242424] dark:text-white">
+                  Experience Highlights
+                </h3>
 
-              <ul className="mt-3 space-y-3">
-                {activeExperience.highlights.map((highlight) => (
-                  <li key={highlight} className="flex items-start gap-3 text-[14px] leading-[1.6] text-[#777777] dark:text-[#b0b0b0]">
-                    <span aria-hidden="true" className="mt-2.25 h-1.25 w-1.25 shrink-0 rounded-full bg-[#242424] dark:bg-white" />
-                    <span>{highlight}</span>
-                  </li>
-                ))}
-              </ul>
+                <ul className="mt-4 space-y-3">
+                  {activeExperience.highlights.map((highlight) => (
+                    <li key={highlight} className="flex items-start gap-3 text-[14px] leading-[1.6] text-[#777777] dark:text-[#b0b0b0]">
+                      <span aria-hidden="true" className="mt-2.25 h-1.25 w-1.25 shrink-0 rounded-full bg-[#242424] dark:bg-white" />
+                      <span>{highlight}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
-              <button
-                type="button"
-                onClick={closeDetails}
-                className="mt-7 inline-flex h-10.75 items-center justify-center rounded-lg bg-[#242424] px-6 text-[13px] font-medium text-white transition-all duration-300 hover:-translate-y-1 hover:bg-[#454545] active:translate-y-0 dark:bg-white dark:text-[#242424] dark:hover:bg-[#e9e9e9]"
-              >
-                Continue Exploring
-              </button>
+              {selectedCategory && (
+                <div className="mt-6 flex flex-wrap items-center gap-2">
+                  <span className="text-[12px] text-[#858585] dark:text-[#aaaaaa]">
+                    Related Category:
+                  </span>
+
+                  <Link
+                    href={categoryHref}
+                    onClick={closeDetails}
+                    className="inline-flex items-center rounded-full border border-[#e3e3e3] px-3 py-1.5 text-[12px] font-medium text-[#242424] transition-colors duration-300 hover:bg-[#f5f5f5] dark:border-white/15 dark:text-white dark:hover:bg-white/10"
+                  >
+                    {selectedCategory.title}
+                  </Link>
+                </div>
+              )}
+
+              <div className="mt-8 flex flex-wrap items-center gap-3">
+                <Link
+                  href={categoryHref}
+                  onClick={closeDetails}
+                  className="group/cta relative inline-flex h-11 items-center justify-center gap-3 overflow-hidden rounded-lg bg-[#242424] px-5 text-[13px] font-medium text-white shadow-[0_5px_15px_rgba(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-0.75 hover:shadow-[0_10px_25px_rgba(0,0,0,0.14)] active:translate-y-0 dark:bg-white dark:text-[#242424]"
+                >
+                  <span className="absolute inset-0 -translate-x-full bg-[#454545] transition-transform duration-500 ease-out group-hover/cta:translate-x-0 dark:bg-[#e8e8e8]" />
+
+                  <span className="relative z-10">
+                    {selectedCategory ? "Explore Related Trips" : "Explore Our Trips"}
+                  </span>
+
+                  <IoArrowForwardOutline aria-hidden="true" className="relative z-10 text-[17px] transition-transform duration-300 group-hover/cta:translate-x-1" />
+                </Link>
+
+                <Link
+                  href="/trip#all-trips"
+                  onClick={closeDetails}
+                  className="group/link inline-flex h-11 items-center justify-center gap-2 rounded-lg px-3 text-[13px] font-medium text-[#555555] transition-colors duration-300 hover:text-[#242424] dark:text-[#cccccc] dark:hover:text-white"
+                >
+                  View All Trips
+                  <IoArrowForwardOutline aria-hidden="true" className="text-[16px] transition-transform duration-300 group-hover/link:translate-x-1" />
+                </Link>
+              </div>
             </div>
           </div>
         )}

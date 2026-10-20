@@ -33,24 +33,24 @@ export default function BookingSteps() {
       <section id="booking-steps" aria-labelledby="booking-steps-heading" className="overflow-hidden bg-[#f8f8f8] pt-20 pb-24 transition-colors duration-300 dark:bg-[#191b1d] sm:pt-24 sm:pb-28 lg:pt-28 lg:pb-36">
         <Container>
           <Reveal className="text-center">
-            <h2 id="booking-steps-heading" className="font-heading text-[30px] leading-[1.2] font-semibold tracking-[-0.055em] text-[#242424] dark:text-white sm:text-[36px] lg:text-[44px]">
+            <h2 id="booking-steps-heading" className="font-heading text-[30px] leading-[1.2] font-semibold tracking-[-0.055em] text-[#242424] dark:text-white sm:text-[36px] lg:text-[40px]">
               How to Plan Your Adventure
             </h2>
 
-            <p className="mx-auto mt-4 max-w-180 text-[14px] leading-[1.75] font-normal text-[#858585] dark:text-[#aaaaaa] sm:text-[16px]">
+            <p className="mx-auto mt-4 max-w-[720px] text-[14px] leading-[1.75] font-normal text-[#858585] dark:text-[#aaaaaa] sm:text-[16px]">
               From discovering extraordinary places to preparing for the journey ahead, every adventure begins with a thoughtful plan.
             </p>
           </Reveal>
 
           <div className="mt-12 grid grid-cols-1 items-start gap-4 sm:mt-14 sm:grid-cols-2 sm:gap-5 lg:mt-16 lg:grid-cols-4 lg:gap-4 xl:gap-5">
             {bookingSteps.map((step, index) => (
-              <Reveal key={step.id} delay={index * 100} className={`min-w-0 ${index % 2 !== 0 ? "lg:mt-21.25" : ""}`}>
+              <Reveal key={step.id} delay={index * 100} className={`min-w-0 ${index % 2 !== 0 ? "lg:mt-[85px]" : ""}`}>
                 <button
                   type="button"
                   onClick={() => setSelectedStep(step)}
                   aria-label={`Learn more about step ${step.number}: ${step.title}`}
                   aria-haspopup="dialog"
-                  className="group relative flex h-72.5 w-full flex-col justify-between overflow-hidden rounded-2xl bg-white p-6 text-left outline-none transition-[transform,box-shadow,background-color] duration-500 ease-out hover:-translate-y-2 hover:shadow-[0_18px_45px_rgba(0,0,0,0.055)] focus-visible:ring-2 focus-visible:ring-[#242424] dark:bg-[#242628] dark:hover:bg-[#2a2c2e] dark:hover:shadow-[0_18px_45px_rgba(0,0,0,0.15)] dark:focus-visible:ring-white sm:h-85 sm:p-7 lg:h-92.5 lg:p-6 xl:h-97.5 xl:p-7"
+                  className="group relative flex h-[290px] w-full flex-col justify-between overflow-hidden rounded-2xl bg-white p-6 text-left outline-none transition-[transform,box-shadow,background-color] duration-500 ease-out hover:-translate-y-2 hover:shadow-[0_18px_45px_rgba(0,0,0,0.055)] focus-visible:ring-2 focus-visible:ring-[#242424] dark:bg-[#242628] dark:hover:bg-[#2a2c2e] dark:hover:shadow-[0_18px_45px_rgba(0,0,0,0.15)] dark:focus-visible:ring-white sm:h-[340px] sm:p-7 lg:h-[370px] lg:p-6 xl:h-[390px] xl:p-7"
                 >
                   <div className="flex w-full items-start justify-between gap-4">
                     <span className="font-heading text-[48px] leading-none font-medium tracking-[-0.065em] text-[#242424] transition-transform duration-500 ease-out group-hover:-translate-y-1 dark:text-white sm:text-[54px] lg:text-[55px] xl:text-[60px]">
@@ -67,12 +67,12 @@ export default function BookingSteps() {
                       {step.title}
                     </h3>
 
-                    <p className="mt-3 max-w-75 text-[14px] leading-[1.75] font-normal text-[#858585] dark:text-[#aaaaaa] sm:text-[15px] lg:text-[14px] xl:text-[16px]">
+                    <p className="mt-3 max-w-[300px] text-[14px] leading-[1.75] font-normal text-[#858585] dark:text-[#aaaaaa] sm:text-[15px] lg:text-[14px] xl:text-[16px]">
                       {step.description}
                     </p>
                   </div>
 
-                  <span className="pointer-events-none absolute inset-x-0 bottom-0 h-0.75 origin-left scale-x-0 bg-[#242424] transition-transform duration-500 ease-out group-hover:scale-x-100 dark:bg-white" />
+                  <span className="pointer-events-none absolute inset-x-0 bottom-0 h-[3px] origin-left scale-x-0 bg-[#242424] transition-transform duration-500 ease-out group-hover:scale-x-100 dark:bg-white" />
                 </button>
               </Reveal>
             ))}
@@ -88,7 +88,7 @@ export default function BookingSteps() {
         onClick={(event) => {
           if (event.target === event.currentTarget) closeDetails();
         }}
-        className="fixed inset-0 m-auto max-h-[calc(100dvh-32px)] w-[calc(100%-32px)] max-w-145 overflow-y-auto rounded-2xl bg-white p-0 text-[#242424] shadow-[0_25px_90px_rgba(0,0,0,0.3)] backdrop:bg-black/70 backdrop:backdrop-blur-[5px] dark:bg-[#202224] dark:text-white"
+        className="fixed inset-0 m-auto max-h-[calc(100dvh-32px)] w-[calc(100%-32px)] max-w-[580px] overflow-y-auto rounded-2xl bg-white p-0 text-[#242424] shadow-[0_25px_90px_rgba(0,0,0,0.3)] backdrop:bg-black/70 backdrop:backdrop-blur-[5px] dark:bg-[#202224] dark:text-white"
       >
         {selectedStep && (
           <div className="relative px-6 py-7 sm:px-9 sm:py-9">
@@ -103,7 +103,7 @@ export default function BookingSteps() {
             </div>
 
             <div className="mt-9">
-              <span className="text-[11px] font-medium tracking-widest text-[#858585] uppercase dark:text-[#aaaaaa]">
+              <span className="text-[11px] font-medium tracking-[0.1em] text-[#858585] uppercase dark:text-[#aaaaaa]">
                 WAYLUME · Your Travel Journey
               </span>
 
@@ -116,7 +116,7 @@ export default function BookingSteps() {
               </p>
 
               <div className="mt-7 border-t border-[#eaeaea] pt-6 dark:border-white/10">
-                <h3 className="font-heading text-[16px] font-semibold tracking-tight text-[#242424] dark:text-white">
+                <h3 className="font-heading text-[16px] font-semibold tracking-[-0.025em] text-[#242424] dark:text-white">
                   What to Consider
                 </h3>
 

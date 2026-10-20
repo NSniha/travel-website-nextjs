@@ -1,28 +1,27 @@
-import Hero from "@/components/home/Hero";
-import TravelServices from "@/components/home/TravelServices";
-import FeaturedDestinations from "@/components/home/FeaturedDestinations";
-import TravelExperiences from "@/components/home/TravelExperiences";
-import WhyChooseUs from "@/components/home/WhyChooseUs";
-import TravelVideo from "@/components/home/TravelVideo";
-import TravelDeals from "@/components/home/TravelDeals";
-import UpcomingAdventures from "@/components/home/UpcomingAdventures";
-import Testimonials from "@/components/home/Testimonials";
-import TravelTips from "@/components/home/TravelTips";
+import TripHero from "@/components/trip/TripHero";
+import TripCategories from "@/components/trip/TripCategories";
+import TripActivities from "@/components/trip/TripActivities";
+import PopularDestinations from "@/components/trip/PopularDestinations";
+import TripOffer from "@/components/trip/TripOffer";
+import TripExplorer from "@/components/trip/TripExplorer";
+import BookingSteps from "@/components/trip/BookingSteps";
 import Footer from "@/components/layout/Footer";
 
-export default function HomePage() {
+export const metadata = {
+  title: "Explore Trips | WAYLUME",
+  description: "Discover extraordinary destinations, inspiring adventures, and thoughtfully curated travel experiences with WAYLUME.",
+};
+
+export default function TripPage() {
   return (
     <main>
-      <Hero />
-      <TravelServices />
-      <FeaturedDestinations />
-      <TravelExperiences />
-      <WhyChooseUs />
-      <TravelVideo />
-      <TravelDeals />
-      <UpcomingAdventures />
-      <Testimonials />
-      <TravelTips />
+      <TripHero />
+      <TripCategories />
+      <TripActivities />
+      <PopularDestinations />
+      <TripOffer />
+      <TripExplorer />
+      <BookingSteps />
       <Footer />
     </main>
   );

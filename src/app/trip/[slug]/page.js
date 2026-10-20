@@ -43,7 +43,7 @@ export default async function TripDetailsPage({ params }) {
               {trip.title}
             </h1>
 
-            <p className="max-w-[550px] text-[14px] leading-[1.75] text-[#858585] dark:text-[#aaaaaa] sm:text-[16px]">
+            <p className="max-w-137.5 text-[14px] leading-[1.75] text-[#858585] dark:text-[#aaaaaa] sm:text-[16px]">
               {trip.summary}
             </p>
           </div>
@@ -55,7 +55,7 @@ export default async function TripDetailsPage({ params }) {
 
           <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(0,1fr)_300px] lg:gap-16">
             <div>
-              <h2 className="font-heading text-[28px] font-semibold tracking-[-0.05em] text-[#242424] dark:text-white sm:text-[32px]">
+              <h2 className="font-heading text-[28px] font-semibold tracking-tighter text-[#242424] dark:text-white sm:text-[32px]">
                 Journey Highlights
               </h2>
 
@@ -71,7 +71,7 @@ export default async function TripDetailsPage({ params }) {
 
             <div className="h-fit rounded-xl bg-[#f8f8f8] p-6 dark:bg-[#1e2022]">
               <p className="text-[12px] text-[#858585] dark:text-[#aaaaaa]">Indicative starting price</p>
-              <p className="font-heading mt-2 text-[30px] font-semibold tracking-[-0.05em] text-[#242424] dark:text-white">
+              <p className="font-heading mt-2 text-[30px] font-semibold tracking-tighter text-[#242424] dark:text-white">
                 {formatTripPrice(trip.priceFrom, trip.currency)}
               </p>
 

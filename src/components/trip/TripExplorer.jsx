@@ -132,10 +132,6 @@ export default function TripExplorer({ categoryId = null, heading = "Explore All
             </div>
           )}
         </div>
-
-        <p className="mt-5 text-center text-[11px] leading-[1.6] text-[#999999] dark:text-[#888888] sm:text-[12px]">
-          Sample itineraries, indicative pricing and illustrative departure dates. Booking is not currently available.
-        </p>
       </Container>
     </section>
   );

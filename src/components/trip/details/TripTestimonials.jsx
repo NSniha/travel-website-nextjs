@@ -161,7 +161,7 @@ export default function TripTestimonials({
             {title}
           </h2>
 
-          <span className="text-[11px] font-normal text-[#999999] dark:text-[#aaaaaa]">
+          <span className="text-[14px] font-normal text-[#999999] dark:text-[#aaaaaa]">
             Illustrative Testimonials
           </span>
         </div>
@@ -210,12 +210,6 @@ export default function TripTestimonials({
         </div>
       )}
 
-      {/* Sample Content Notice */}
-
-      <p className="mt-5 text-[11px] leading-[1.7] text-[#999999] dark:text-[#888888]">
-        These testimonials are illustrative examples for the website preview,
-        not verified traveler reviews.
-      </p>
     </section>
   );
 }

@@ -15,7 +15,6 @@ import TripActivities from "@/components/trip/details/TripActivities";
 import TripBookingCard from "@/components/trip/details/TripBookingCard";
 import TripTestimonials from "@/components/trip/details/TripTestimonials";
 import TripRelated from "@/components/trip/details/TripRelated";
-import TripCTA from "@/components/trip/details/TripCTA";
 
 import { tripDetails } from "@/data/tripDetails";
 import { getAllTrips, getTripBySlug } from "@/lib/trips";
@@ -235,13 +234,6 @@ export default async function TripDetailsPage({ params }) {
         limit={3}
         title="Explore All Our Trips"
         description="Every journey is carefully crafted to bring your travel dreams to life."
-      />
-
-      {/* Journey CTA */}
-
-      <TripCTA
-        trip={trip}
-        backgroundImage="/images/trip/travel-offer.jpg"
       />
 
       {/* Shared Footer */}

@@ -20,14 +20,14 @@ export default function TripRelated({
     <section
       id="related-trips"
       aria-labelledby="related-trips-heading"
-      className="scroll-mt-24 overflow-hidden bg-white py-20 transition-colors duration-300 dark:bg-[#101112] sm:py-24 lg:py-28"
+      className="scroll-mt-24 overflow-hidden bg-white py-16 transition-colors duration-300 dark:bg-[#101112] sm:py-24 lg:pt-9 lg:pb-30"
     >
       <Container>
         <Reveal>
           <div className="mx-auto max-w-[760px] text-center">
             <h2
               id="related-trips-heading"
-              className="font-heading text-[30px] leading-[1.2] font-semibold tracking-[-0.055em] text-[#242424] dark:text-white sm:text-[36px] lg:text-[40px]"
+              className="font-heading text-[30px] leading-[1.2] font-semibold tracking-[-0.055em] text-[#242424] dark:text-white sm:text-[36px] lg:text-[44px]"
             >
               {title}
             </h2>
@@ -52,11 +52,6 @@ export default function TripRelated({
             </Reveal>
           ))}
         </div>
-
-        <p className="mt-7 text-center text-[11px] leading-[1.7] text-[#999999] dark:text-[#888888] sm:text-[12px]">
-          Explore sample itineraries with indicative prices and illustrative
-          departure dates. Availability is not currently confirmed.
-        </p>
       </Container>
     </section>
   );

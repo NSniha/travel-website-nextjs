@@ -56,7 +56,7 @@ export default function TripCategories({ activeCategoryId = null }) {
   const selectedCategory = tripCategories.find((category) => category.id === activeCategoryId);
 
   return (
-    <section id="trip-categories" aria-labelledby="trip-categories-heading" className="bg-white pt-8 pb-20 transition-colors duration-300 dark:bg-[#101112] sm:pt-12 sm:pb-24 lg:pt-12 lg:pb-14">
+    <section id="trip-categories" aria-labelledby="trip-categories-heading" className="bg-white pt-0 pb-12 transition-colors duration-300 dark:bg-[#101112] sm:pt-8 sm:pb-12 lg:pt-12 lg:pb-14">
       <Container>
         <div className="grid min-w-0 items-end gap-5 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-12 xl:gap-16">
           <Reveal className="min-w-0">

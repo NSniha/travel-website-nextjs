@@ -23,21 +23,21 @@ export default function TripExplorer({ categoryId = null, heading = "Explore All
   const hasActiveFilters = Boolean(search.trim()) || sort !== "featured";
 
   return (
-    <section id="all-trips" aria-labelledby="all-trips-heading" className="bg-white pt-12 pb-24 transition-colors duration-300 dark:bg-[#101112] sm:pt-16 sm:pb-28 lg:pt-20 lg:pb-32">
+    <section id="all-trips" aria-labelledby="all-trips-heading" className="bg-white pt-4 pb-18 transition-colors duration-300 dark:bg-[#101112] sm:pt-16 sm:pb-28 lg:pt-16 lg:pb-28">
       <Container>
         <Reveal className="text-center">
-          <h2 id="all-trips-heading" className="font-heading text-[30px] leading-[1.2] font-semibold tracking-[-0.055em] text-[#242424] dark:text-white sm:text-[36px] lg:text-[40px]">
+          <h2 id="all-trips-heading" className="font-heading text-[30px] leading-[1.2] font-semibold tracking-[-0.055em] text-[#242424] dark:text-white sm:text-[36px] lg:text-[44px]">
             {heading}
           </h2>
 
-          <p className="mx-auto mt-4 max-w-[720px] text-[14px] leading-[1.75] font-normal text-[#858585] dark:text-[#aaaaaa] sm:text-[16px]">
+          <p className="mx-auto mt-4 max-w-180 text-[14px] leading-[1.75] font-normal text-[#858585] dark:text-[#aaaaaa] sm:text-[16px]">
             Every journey begins with inspiration. Discover remarkable places and find the experience that speaks to you.
           </p>
         </Reveal>
 
         <div className="relative mt-11 sm:mt-12 lg:mt-14">
           <div className="mb-5 flex items-center justify-between gap-4">
-            <p aria-live="polite" className="text-[12px] leading-[1.5] text-[#858585] dark:text-[#aaaaaa] sm:text-[13px]">
+            <p aria-live="polite" className="text-[12px] leading-normal text-[#858585] dark:text-[#aaaaaa] sm:text-[13px]">
               {filteredTrips.length} {filteredTrips.length === 1 ? "journey" : "journeys"} to explore
             </p>
 
@@ -109,14 +109,14 @@ export default function TripExplorer({ categoryId = null, heading = "Explore All
               ))}
             </div>
           ) : (
-            <div className="flex min-h-[300px] flex-col items-center justify-center rounded-2xl border border-[#ededed] bg-[#fafafa] px-6 py-14 text-center dark:border-white/10 dark:bg-[#1e2022]">
+            <div className="flex min-h-75 flex-col items-center justify-center rounded-2xl border border-[#ededed] bg-[#fafafa] px-6 py-14 text-center dark:border-white/10 dark:bg-[#1e2022]">
               <IoSearchOutline aria-hidden="true" className="text-[35px] text-[#999999]" />
 
               <h3 className="font-heading mt-5 text-[21px] font-semibold tracking-[-0.04em] text-[#242424] dark:text-white">
                 No matching journeys found
               </h3>
 
-              <p className="mt-3 max-w-[380px] text-[13px] leading-[1.75] text-[#858585] dark:text-[#aaaaaa] sm:text-[14px]">
+              <p className="mt-3 max-w-95 text-[13px] leading-[1.75] text-[#858585] dark:text-[#aaaaaa] sm:text-[14px]">
                 Try searching for another destination or explore all available journeys.
               </p>
 

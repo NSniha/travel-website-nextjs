@@ -124,7 +124,7 @@ export default function PopularDestinations() {
 
   return (
     <>
-      <section ref={sectionRef} id="popular-destinations" aria-labelledby="popular-destinations-heading" className="relative isolate overflow-hidden bg-[#f8f8f8] py-21.25 transition-colors duration-300 dark:bg-[#191b1d] sm:py-24 lg:py-16">
+      <section ref={sectionRef} id="popular-destinations" aria-labelledby="popular-destinations-heading" className="relative isolate overflow-hidden bg-[#f8f8f8] pt-19 pb-12 transition-colors duration-300 dark:bg-[#191b1d] sm:py-24 lg:py-16">
         <Container>
           <div className="grid min-w-0 items-center gap-10 lg:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] lg:gap-10 xl:gap-14">
             <Reveal className="relative z-10 min-w-0">

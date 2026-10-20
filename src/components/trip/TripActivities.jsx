@@ -25,7 +25,7 @@ function ActivityCard({ activity, type, onSelect }) {
           <IoArrowForwardOutline aria-hidden="true" className="mt-1 shrink-0 -rotate-45 text-[19px] text-[#777777] opacity-0 transition-all duration-300 group-hover:rotate-0 group-hover:opacity-100 group-focus-visible:opacity-100 dark:text-white" />
         </div>
 
-        <p className="max-w-[280px] text-[14px] leading-[1.75] font-normal text-[#858585] dark:text-[#aaaaaa] sm:text-[15px] lg:text-[14px] xl:text-[16px]">
+        <p className="max-w-70 text-[14px] leading-[1.75] font-normal text-[#858585] dark:text-[#aaaaaa] sm:text-[15px] lg:text-[14px] xl:text-[16px]">
           {activity.description}
         </p>
       </button>
@@ -45,7 +45,7 @@ function ActivityCard({ activity, type, onSelect }) {
         fill
         quality={90}
         sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 25vw"
-        className="object-cover object-center transition-transform duration-[1100ms] ease-[cubic-bezier(0.22,1,0.36,1)] motion-safe:group-hover:scale-[1.07]"
+        className="object-cover object-center transition-transform duration-1100 ease-[cubic-bezier(0.22,1,0.36,1)] motion-safe:group-hover:scale-[1.07]"
       />
 
       <span className="absolute inset-0 bg-black/0 transition-colors duration-500 group-hover:bg-black/10" />
@@ -89,13 +89,13 @@ export default function TripActivities() {
         <Container>
           <div className="grid min-w-0 items-end gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-12 xl:gap-16">
             <Reveal className="min-w-0">
-              <h2 id="trip-activities-heading" className="font-heading max-w-[650px] text-[30px] leading-[1.2] font-semibold tracking-[-0.055em] text-[#242424] dark:text-white sm:text-[36px] lg:text-[44px]">
+              <h2 id="trip-activities-heading" className="font-heading max-w-162.5 text-[30px] leading-[1.2] font-semibold tracking-[-0.055em] text-[#242424] dark:text-white sm:text-[36px] lg:text-[44px]">
                 Unforgettable Experiences<br className="hidden sm:block" /> For Every Explorer
               </h2>
             </Reveal>
 
             <Reveal delay={120} className="min-w-0 lg:justify-self-end lg:pb-1">
-              <p className="max-w-[530px] text-[14px] leading-[1.75] font-normal text-[#858585] dark:text-[#aaaaaa] sm:text-[16px]">
+              <p className="max-w-132.5 text-[14px] leading-[1.75] font-normal text-[#858585] dark:text-[#aaaaaa] sm:text-[16px]">
                 Discover extraordinary activities and meaningful experiences that make every journey truly unforgettable.
               </p>
             </Reveal>
@@ -104,7 +104,7 @@ export default function TripActivities() {
           <div className="mt-10 grid grid-cols-1 gap-4 sm:mt-12 sm:grid-cols-2 sm:gap-5 lg:mt-14 lg:grid-cols-4 lg:gap-5 xl:gap-6">
             {activityCards.map((card, index) => (
               <Reveal key={card.key} delay={(index % 4) * 80} className="min-w-0">
-                <div className="h-[245px] min-w-0 sm:h-[275px] lg:h-[clamp(265px,21vw,325px)]">
+                <div className="h-61.25 min-w-0 sm:h-68.75 lg:h-[clamp(265px,21vw,325px)]">
                   <ActivityCard activity={card.activity} type={card.type} onSelect={setSelectedActivity} />
                 </div>
               </Reveal>
@@ -120,11 +120,11 @@ export default function TripActivities() {
         onClick={(event) => {
           if (event.target === event.currentTarget) closeActivity();
         }}
-        className="fixed inset-0 m-auto max-h-[calc(100dvh-32px)] w-[calc(100%-32px)] max-w-[640px] overflow-y-auto rounded-2xl bg-white p-0 text-[#242424] shadow-[0_25px_90px_rgba(0,0,0,0.3)] backdrop:bg-black/70 backdrop:backdrop-blur-[5px] dark:bg-[#1e2022] dark:text-white"
+        className="fixed inset-0 m-auto max-h-[calc(100dvh-32px)] w-[calc(100%-32px)] max-w-160 overflow-y-auto rounded-2xl bg-white p-0 text-[#242424] shadow-[0_25px_90px_rgba(0,0,0,0.3)] backdrop:bg-black/70 backdrop:backdrop-blur-[5px] dark:bg-[#1e2022] dark:text-white"
       >
         {selectedActivity && (
           <article>
-            <div className="relative h-[235px] overflow-hidden bg-[#e5e8e4] sm:h-[310px]">
+            <div className="relative h-58.75 overflow-hidden bg-[#e5e8e4] sm:h-77.5">
               <Image
                 src={selectedActivity.image}
                 alt={selectedActivity.imageAlt}
@@ -154,7 +154,7 @@ export default function TripActivities() {
               </p>
 
               <div className="mt-7 border-t border-[#ececec] pt-6 dark:border-white/10">
-                <h3 className="font-heading text-[16px] font-semibold tracking-[-0.025em]">
+                <h3 className="font-heading text-[16px] font-semibold tracking-tight">
                   Experience Highlights
                 </h3>
 
@@ -168,7 +168,7 @@ export default function TripActivities() {
                 </ul>
               </div>
 
-              <Link href={`/trip/category/${selectedActivity.categorySlug}`} onClick={closeActivity} className="group mt-8 inline-flex h-[46px] items-center justify-center gap-3 rounded-lg bg-[#242424] px-6 text-[13px] font-medium text-white transition-all duration-300 hover:-translate-y-0.75 hover:bg-[#454545] hover:shadow-[0_8px_25px_rgba(0,0,0,0.12)] active:translate-y-0 dark:bg-white dark:text-[#242424] dark:hover:bg-[#e9e9e9]">
+              <Link href={`/trip/category/${selectedActivity.categorySlug}`} onClick={closeActivity} className="group mt-8 inline-flex h-11.5 items-center justify-center gap-3 rounded-lg bg-[#242424] px-6 text-[13px] font-medium text-white transition-all duration-300 hover:-translate-y-0.75 hover:bg-[#454545] hover:shadow-[0_8px_25px_rgba(0,0,0,0.12)] active:translate-y-0 dark:bg-white dark:text-[#242424] dark:hover:bg-[#e9e9e9]">
                 Explore Related Experiences
                 <IoArrowForwardOutline aria-hidden="true" className="text-[17px] transition-transform duration-300 group-hover:translate-x-1" />
               </Link>

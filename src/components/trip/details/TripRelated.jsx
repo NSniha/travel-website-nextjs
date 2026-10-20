@@ -24,7 +24,7 @@ export default function TripRelated({
     >
       <Container>
         <Reveal>
-          <div className="mx-auto max-w-[760px] text-center">
+          <div className="mx-auto max-w-190 text-center">
             <h2
               id="related-trips-heading"
               className="font-heading text-[30px] leading-[1.2] font-semibold tracking-[-0.055em] text-[#242424] dark:text-white sm:text-[36px] lg:text-[44px]"
@@ -32,7 +32,7 @@ export default function TripRelated({
               {title}
             </h2>
 
-            <p className="mx-auto mt-4 max-w-[560px] text-[14px] leading-[1.75] font-normal text-[#858585] dark:text-[#aaaaaa] sm:text-[16px]">
+            <p className="mx-auto mt-4 max-w-140 text-[14px] leading-[1.75] font-normal text-[#858585] dark:text-[#aaaaaa] sm:text-[16px]">
               {description}
             </p>
           </div>

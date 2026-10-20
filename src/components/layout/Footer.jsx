@@ -77,7 +77,7 @@ export default function Footer() {
         <div
           className="absolute inset-0"
           style={{
-            background: "linear-gradient(180deg, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.12) 15%, rgba(0,0,0,0.28) 30%, rgba(0,0,0,0.52) 45%, rgba(0,0,0,0.78) 60%, rgba(0,0,0,0.93) 76%, rgba(0,0,0,0.98) 90%, #050505 100%)",
+            background: "linear-gradient(180deg, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.12) 25%, rgba(0,0,0,0.28) 30%, rgba(0,0,0,0.52) 45%, rgba(0,0,0,0.78) 60%, rgba(0,0,0,0.93) 76%, rgba(0,0,0,0.98) 90%, #050505 100%)",
           }}
         />
 

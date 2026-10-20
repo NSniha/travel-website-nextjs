@@ -3,42 +3,24 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { IoArrowForwardOutline, IoCloseOutline, IoCompassOutline } from "react-icons/io5";
+import { IoArrowForwardOutline, IoCloseOutline, IoCompassOutline, IoLocationOutline } from "react-icons/io5";
 import Container from "@/components/shared/Container";
 import Reveal from "@/components/shared/Reveal";
 import { travelExperiences } from "@/data/home";
-import { tripCategories } from "@/data/tripPage";
-
-const categoryKeywords = {
-  family: ["family"],
-  romantic: ["romantic", "couple", "two-person"],
-  adventure: ["adventure", "wild horizons", "trekking"],
-  cultural: ["cultural", "culture", "heritage"],
-  island: ["island", "tropical", "beach retreat"],
-};
-
-function getExperienceCategory(experience) {
-  const explicitCategory = tripCategories.find(
-    (category) => category.id === experience.categoryId || category.slug === experience.categorySlug,
-  );
-
-  if (explicitCategory) return explicitCategory;
-
-  const searchText = `${experience.id ?? ""} ${experience.title ?? ""}`.toLowerCase();
-
-  return (
-    tripCategories.find((category) =>
-      categoryKeywords[category.id]?.some((keyword) => searchText.includes(keyword)),
-    ) || null
-  );
-}
+import { trips } from "@/data/trips";
 
 export default function TravelExperiences() {
   const [activeExperience, setActiveExperience] = useState(null);
   const dialogRef = useRef(null);
+  const closeButtonRef = useRef(null);
 
-  const selectedCategory = activeExperience ? getExperienceCategory(activeExperience) : null;
-  const categoryHref = selectedCategory ? `/trip/category/${selectedCategory.slug}` : "/trip#all-trips";
+  const featuredTrip = activeExperience
+    ? trips.find((trip) => trip.slug === activeExperience.featuredTripSlug)
+    : null;
+
+  const categoryHref = activeExperience?.categorySlug
+    ? `/trip/category/${activeExperience.categorySlug}`
+    : "/trip#all-trips";
 
   useEffect(() => {
     const dialog = dialogRef.current;
@@ -49,12 +31,16 @@ export default function TravelExperiences() {
 
     if (!dialog.open) dialog.showModal();
 
+    dialog.scrollTop = 0;
+    closeButtonRef.current?.focus();
+
     return () => {
       if (dialog.open) dialog.close();
       document.body.style.overflow = previousOverflow;
     };
   }, [activeExperience]);
 
+  const openDetails = (experience) => setActiveExperience(experience);
   const closeDetails = () => dialogRef.current?.close();
 
   return (
@@ -83,14 +69,14 @@ export default function TravelExperiences() {
                 <Reveal key={experience.id} delay={(index % 3) * 90} className={columnClass}>
                   <button
                     type="button"
-                    onClick={() => setActiveExperience(experience)}
+                    onClick={() => openDetails(experience)}
                     aria-label={`Explore ${experience.title}`}
                     aria-haspopup="dialog"
                     className="group relative block h-67.5 w-full overflow-hidden rounded-[14px] bg-[#e2e5e4] text-left outline-none transition-shadow duration-500 hover:shadow-[0_15px_35px_rgba(0,0,0,0.12)] focus-visible:ring-2 focus-visible:ring-[#242424] focus-visible:ring-offset-4 dark:bg-[#292c2e] dark:focus-visible:ring-white dark:focus-visible:ring-offset-[#101112] sm:h-71.25 lg:h-[clamp(280px,27.8vw,370px)]"
                   >
                     <Image
                       src={experience.image}
-                      alt={`${experience.title} travel experience`}
+                      alt={experience.imageAlt || `${experience.title} travel experience`}
                       fill
                       sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, (max-width: 1536px) 50vw, 740px"
                       className="object-cover object-center transition-transform duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)] motion-safe:group-hover:scale-[1.065]"
@@ -129,22 +115,23 @@ export default function TravelExperiences() {
         onClick={(event) => {
           if (event.target === event.currentTarget) closeDetails();
         }}
-        className="fixed inset-0 m-auto max-h-[calc(100dvh-32px)] w-[calc(100%-32px)] max-w-147.5 overflow-y-auto rounded-[18px] bg-white p-0 text-[#242424] shadow-[0_25px_90px_rgba(0,0,0,0.25)] backdrop:bg-black/65 backdrop:backdrop-blur-xs dark:bg-[#1e2022] dark:text-white"
+        className="fixed inset-0 m-auto max-h-[calc(100dvh-32px)] w-[calc(100%-32px)] max-w-147.5 overscroll-contain overflow-y-auto rounded-[18px] bg-white p-0 text-[#242424] shadow-[0_25px_90px_rgba(0,0,0,0.25)] backdrop:bg-black/65 backdrop:backdrop-blur-xs dark:bg-[#1e2022] dark:text-white"
       >
         {activeExperience && (
-          <div>
+          <article>
             <div className="relative h-55 overflow-hidden bg-[#e2e5e4] dark:bg-[#292c2e] sm:h-68.75">
               <Image
                 src={activeExperience.image}
-                alt={activeExperience.title}
+                alt={activeExperience.imageAlt || activeExperience.title}
                 fill
                 sizes="(max-width: 640px) 100vw, 590px"
                 className="object-cover object-center"
               />
 
-              <div className="absolute inset-0 bg-linear-to-t from-black/25 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-black/35 via-transparent to-black/5" />
 
               <button
+                ref={closeButtonRef}
                 type="button"
                 onClick={closeDetails}
                 aria-label="Close experience details"
@@ -183,48 +170,80 @@ export default function TravelExperiences() {
                 </ul>
               </div>
 
-              {selectedCategory && (
-                <div className="mt-6 flex flex-wrap items-center gap-2">
-                  <span className="text-[12px] text-[#858585] dark:text-[#aaaaaa]">
-                    Related Category:
-                  </span>
+              {featuredTrip && (
+                <div className="mt-7">
+                  <div className="mb-4 flex items-center justify-between gap-3">
+                    <h3 className="font-heading text-[16px] font-semibold tracking-[-0.03em] text-[#242424] dark:text-white">
+                      Featured Journey
+                    </h3>
+
+                    <span className="text-[11px] font-medium text-[#858585] dark:text-[#aaaaaa]">
+                      Recommended
+                    </span>
+                  </div>
 
                   <Link
-                    href={categoryHref}
+                    href={`/trip/${featuredTrip.slug}`}
                     onClick={closeDetails}
-                    className="inline-flex items-center rounded-full border border-[#e3e3e3] px-3 py-1.5 text-[12px] font-medium text-[#242424] transition-colors duration-300 hover:bg-[#f5f5f5] dark:border-white/15 dark:text-white dark:hover:bg-white/10"
+                    className="group/trip flex items-center gap-4 rounded-xl border border-[#eeeeee] bg-[#fafafa] p-3 transition-all duration-300 hover:border-[#d5d5d5] hover:bg-[#f5f5f5] dark:border-white/10 dark:bg-[#292b2d] dark:hover:border-white/20 dark:hover:bg-[#303234]"
                   >
-                    {selectedCategory.title}
+                    <div className="relative h-23 w-23 shrink-0 overflow-hidden rounded-lg bg-[#e5e5e5] sm:h-26 sm:w-30">
+                      <Image
+                        src={featuredTrip.image}
+                        alt={featuredTrip.imageAlt}
+                        fill
+                        sizes="(max-width: 639px) 92px, 120px"
+                        className="object-cover object-center transition-transform duration-700 motion-safe:group-hover/trip:scale-110"
+                      />
+                    </div>
+
+                    <div className="min-w-0 flex-1">
+                      <h4 className="font-heading text-[14px] leading-[1.4] font-semibold tracking-[-0.03em] text-[#242424] dark:text-white sm:text-[15px]">
+                        {featuredTrip.title}
+                      </h4>
+
+                      <p className="mt-2 flex items-center gap-1.5 text-[12px] text-[#858585] dark:text-[#aaaaaa]">
+                        <IoLocationOutline aria-hidden="true" className="shrink-0 text-[15px]" />
+                        <span className="truncate">{featuredTrip.location}</span>
+                      </p>
+
+                      <p className="mt-1.5 text-[12px] text-[#858585] dark:text-[#aaaaaa]">
+                        {featuredTrip.durationDays} Days
+                      </p>
+                    </div>
+
+                    <IoArrowForwardOutline aria-hidden="true" className="shrink-0 text-[18px] text-[#242424] transition-transform duration-300 group-hover/trip:translate-x-1 dark:text-white" />
                   </Link>
                 </div>
               )}
 
-              <div className="mt-8 flex flex-wrap items-center gap-3">
+              <div className="mt-7 flex flex-wrap items-center gap-3">
                 <Link
                   href={categoryHref}
                   onClick={closeDetails}
-                  className="group/cta relative inline-flex h-11 items-center justify-center gap-3 overflow-hidden rounded-lg bg-[#242424] px-5 text-[13px] font-medium text-white shadow-[0_5px_15px_rgba(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-0.75 hover:shadow-[0_10px_25px_rgba(0,0,0,0.14)] active:translate-y-0 dark:bg-white dark:text-[#242424]"
+                  className="group/cta relative inline-flex h-11 items-center justify-center gap-3 overflow-hidden rounded-lg bg-[#242424] px-5 text-[13px] font-medium text-white shadow-[0_5px_15px_rgba(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_25px_rgba(0,0,0,0.14)] dark:bg-white dark:text-[#242424]"
                 >
                   <span className="absolute inset-0 -translate-x-full bg-[#454545] transition-transform duration-500 ease-out group-hover/cta:translate-x-0 dark:bg-[#e8e8e8]" />
 
-                  <span className="relative z-10">
-                    {selectedCategory ? "Explore Related Trips" : "Explore Our Trips"}
-                  </span>
+                  <span className="relative z-10">Explore Related Trips</span>
 
                   <IoArrowForwardOutline aria-hidden="true" className="relative z-10 text-[17px] transition-transform duration-300 group-hover/cta:translate-x-1" />
                 </Link>
 
-                <Link
-                  href="/trip#all-trips"
-                  onClick={closeDetails}
-                  className="group/link inline-flex h-11 items-center justify-center gap-2 rounded-lg px-3 text-[13px] font-medium text-[#555555] transition-colors duration-300 hover:text-[#242424] dark:text-[#cccccc] dark:hover:text-white"
-                >
-                  View All Trips
-                  <IoArrowForwardOutline aria-hidden="true" className="text-[16px] transition-transform duration-300 group-hover/link:translate-x-1" />
-                </Link>
+                {featuredTrip && (
+                  <Link
+                    href={`/trip/${featuredTrip.slug}`}
+                    onClick={closeDetails}
+                    className="group/link inline-flex h-11 items-center justify-center gap-2 rounded-lg px-3 text-[13px] font-medium text-[#555555] transition-colors duration-300 hover:text-[#242424] dark:text-[#cccccc] dark:hover:text-white"
+                  >
+                    View Featured Trip
+
+                    <IoArrowForwardOutline aria-hidden="true" className="text-[16px] transition-transform duration-300 group-hover/link:translate-x-1" />
+                  </Link>
+                )}
               </div>
             </div>
-          </div>
+          </article>
         )}
       </dialog>
     </>

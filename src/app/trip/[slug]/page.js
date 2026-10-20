@@ -80,10 +80,6 @@ export default async function TripDetailsPage({ params }) {
                 <p>Sample dates: {trip.dateLabel}</p>
                 <p>Destination: {trip.location}</p>
               </div>
-
-              <p className="mt-5 text-[12px] leading-[1.7] text-[#858585] dark:text-[#aaaaaa]">
-                This is a sample itinerary preview. Confirmed pricing, availability and booking are not yet offered.
-              </p>
             </div>
           </div>
         </Container>

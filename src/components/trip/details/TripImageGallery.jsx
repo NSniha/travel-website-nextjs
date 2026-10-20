@@ -23,7 +23,7 @@ function GalleryImage({
       onClick={onClick}
       aria-label={`View ${photo.alt} in fullscreen`}
       aria-haspopup="dialog"
-      className={`group relative block overflow-hidden rounded-[12px] bg-[#e5e8e6] text-left outline-none transition-shadow duration-500 hover:shadow-[0_12px_30px_rgba(0,0,0,0.12)] focus-visible:ring-2 focus-visible:ring-[#242424] focus-visible:ring-offset-3 dark:bg-[#292c2e] dark:focus-visible:ring-white dark:focus-visible:ring-offset-[#101112] ${className}`}
+      className={`group relative block overflow-hidden rounded-xl bg-[#e5e8e6] text-left outline-none transition-shadow duration-500 hover:shadow-[0_12px_30px_rgba(0,0,0,0.12)] focus-visible:ring-2 focus-visible:ring-[#242424] focus-visible:ring-offset-3 dark:bg-[#292c2e] dark:focus-visible:ring-white dark:focus-visible:ring-offset-[#101112] ${className}`}
     >
       <Image
         src={photo.src}
@@ -31,7 +31,7 @@ function GalleryImage({
         fill
         priority={priority}
         sizes={sizes}
-        className="object-cover object-center transition-transform duration-[1100ms] ease-[cubic-bezier(0.22,1,0.36,1)] motion-safe:group-hover:scale-[1.055]"
+        className="object-cover object-center transition-transform duration-1100 ease-[cubic-bezier(0.22,1,0.36,1)] motion-safe:group-hover:scale-[1.055]"
       />
 
       <span className="pointer-events-none absolute inset-0 bg-black/0 transition-colors duration-500 group-hover:bg-black/15" />
@@ -218,7 +218,7 @@ export default function TripImageGallery({
             </div>
           )}
 
-          <div className="grid h-[280px] min-w-0 grid-cols-[minmax(0,0.9fr)_minmax(0,1.55fr)] gap-2.5 sm:h-[340px] sm:gap-3 lg:h-[380px]">
+          <div className="grid h-70 min-w-0 grid-cols-[minmax(0,0.9fr)_minmax(0,1.55fr)] gap-2.5 sm:h-85 sm:gap-3 lg:h-95">
             <div className="grid min-h-0 grid-rows-2 gap-2.5 sm:gap-3">
               {renderPhoto(
                 0,
@@ -251,7 +251,7 @@ export default function TripImageGallery({
             true
           )}
 
-          <div className="grid h-[290px] min-w-0 grid-cols-2 grid-rows-2 gap-2.5 sm:h-[454px] sm:gap-3.5 lg:h-[502px] lg:gap-4 xl:h-[530px]">
+          <div className="grid h-72.5 min-w-0 grid-cols-2 grid-rows-2 gap-2.5 sm:h-113.5 sm:gap-3.5 lg:h-125.5 lg:gap-4 xl:h-132.5">
             {renderPhoto(
               1,
               "col-span-2 h-full w-full",
@@ -283,14 +283,14 @@ export default function TripImageGallery({
             closeLightbox();
           }
         }}
-        className="fixed inset-0 m-auto max-h-[calc(100dvh-24px)] w-[calc(100%-24px)] max-w-[1150px] overflow-hidden rounded-[16px] bg-[#101112] p-0 text-white shadow-[0_30px_100px_rgba(0,0,0,0.4)] backdrop:bg-black/85 backdrop:backdrop-blur-md sm:w-[calc(100%-48px)]"
+        className="fixed inset-0 m-auto max-h-[calc(100dvh-24px)] w-[calc(100%-24px)] max-w-287.5 overflow-hidden rounded-2xl bg-[#101112] p-0 text-white shadow-[0_30px_100px_rgba(0,0,0,0.4)] backdrop:bg-black/85 backdrop:backdrop-blur-md sm:w-[calc(100%-48px)]"
       >
         <div className="relative">
           <div className="flex min-h-16 items-center justify-between gap-4 border-b border-white/10 px-4 py-3 sm:px-6">
             <div className="min-w-0">
               <h2
                 id="trip-lightbox-title"
-                className="font-heading truncate text-[15px] font-semibold tracking-[-0.025em] sm:text-[17px]"
+                className="font-heading truncate text-[15px] font-semibold tracking-tight sm:text-[17px]"
               >
                 {trip?.title || "Journey Gallery"}
               </h2>

@@ -142,7 +142,7 @@ function ConfirmationToast({ feedback, onClose }) {
           </span>
 
           <div className="min-w-0 flex-1 pt-0.5">
-            <h3 className="font-heading text-[15px] leading-[1.4] font-semibold tracking-[-0.025em] text-[#242424] dark:text-white">
+            <h3 className="font-heading text-[15px] leading-[1.4] font-semibold tracking-tight text-[#242424] dark:text-white">
               {feedback.title}
             </h3>
 
@@ -240,12 +240,12 @@ function ContactInformation() {
           {item.href ? (
             <a
               href={item.href}
-              className="mt-2 block break-words text-[12px] leading-[1.7] text-[#888888] transition-colors duration-300 hover:text-[#242424] dark:text-[#aaaaaa] dark:hover:text-white sm:text-[13px]"
+              className="mt-2 block wrap-break-word text-[12px] leading-[1.7] text-[#888888] transition-colors duration-300 hover:text-[#242424] dark:text-[#aaaaaa] dark:hover:text-white sm:text-[13px]"
             >
               {item.value}
             </a>
           ) : (
-            <p className="mt-2 break-words text-[12px] leading-[1.7] text-[#888888] dark:text-[#aaaaaa] sm:text-[13px]">
+            <p className="mt-2 wrap-break-word text-[12px] leading-[1.7] text-[#888888] dark:text-[#aaaaaa] sm:text-[13px]">
               {item.value}
             </p>
           )}

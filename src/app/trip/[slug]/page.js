@@ -96,13 +96,13 @@ export default async function TripDetailsPage({ params }) {
                 Discover Your Next Journey
               </span>
 
-              <h1 className="font-heading mt-5 max-w-[780px] text-[clamp(37px,7vw,60px)] leading-[1.085] font-medium tracking-[-0.06em] text-[#242424] dark:text-white sm:text-[clamp(48px,6vw,68px)] lg:text-[clamp(56px,4.9vw,78px)]">
+              <h1 className="font-heading mt-5 max-w-195 text-[clamp(37px,7vw,60px)] leading-[1.085] font-medium tracking-[-0.06em] text-[#242424] dark:text-white sm:text-[clamp(48px,6vw,68px)] lg:text-[clamp(56px,4.9vw,78px)]">
                 {trip.title}
               </h1>
             </Reveal>
 
             <Reveal delay={120} className="min-w-0 lg:pb-2">
-              <p className="max-w-[550px] text-[14px] leading-[1.8] text-[#858585] dark:text-[#aaaaaa] sm:text-[16px]">
+              <p className="max-w-137.5 text-[14px] leading-[1.8] text-[#858585] dark:text-[#aaaaaa] sm:text-[16px]">
                 {trip.summary}
               </p>
 
@@ -126,14 +126,14 @@ export default async function TripDetailsPage({ params }) {
                 priority
                 quality={90}
                 sizes="(max-width: 1536px) 95vw, 1490px"
-                className="object-cover object-center transition-transform duration-[1400ms] ease-[cubic-bezier(0.22,1,0.36,1)] motion-safe:group-hover:scale-[1.035]"
+                className="object-cover object-center transition-transform duration-1400 ease-[cubic-bezier(0.22,1,0.36,1)] motion-safe:group-hover:scale-[1.035]"
               />
 
               <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/55 via-transparent to-black/5" />
 
               <div className="absolute right-0 bottom-0 left-0 flex flex-wrap items-end justify-between gap-4 p-6 text-white sm:p-8 lg:p-10">
                 <div>
-                  <span className="text-[11px] font-medium tracking-[0.1em] text-white/80 uppercase sm:text-[12px]">
+                  <span className="text-[11px] font-medium tracking-widest text-white/80 uppercase sm:text-[12px]">
                     Explore the Extraordinary
                   </span>
 
@@ -157,7 +157,7 @@ export default async function TripDetailsPage({ params }) {
                   About This Journey
                 </h2>
 
-                <p className="mt-6 max-w-[760px] text-[14px] leading-[1.9] text-[#858585] dark:text-[#aaaaaa] sm:text-[16px]">
+                <p className="mt-6 max-w-190 text-[14px] leading-[1.9] text-[#858585] dark:text-[#aaaaaa] sm:text-[16px]">
                   {trip.description || trip.summary}
                 </p>
               </Reveal>
@@ -319,14 +319,14 @@ export default async function TripDetailsPage({ params }) {
               <Reveal>
                 <h2
                   id="related-experiences-heading"
-                  className="font-heading max-w-[620px] text-[30px] leading-[1.2] font-semibold tracking-[-0.055em] text-[#242424] dark:text-white sm:text-[36px] lg:text-[40px]"
+                  className="font-heading max-w-155 text-[30px] leading-[1.2] font-semibold tracking-[-0.055em] text-[#242424] dark:text-white sm:text-[36px] lg:text-[40px]"
                 >
                   More Ways to Experience the World
                 </h2>
               </Reveal>
 
               <Reveal delay={120} className="lg:justify-self-end">
-                <p className="max-w-[470px] text-[14px] leading-[1.75] text-[#858585] dark:text-[#aaaaaa] sm:text-[16px]">
+                <p className="max-w-117.5 text-[14px] leading-[1.75] text-[#858585] dark:text-[#aaaaaa] sm:text-[16px]">
                   Discover inspiring travel styles and extraordinary experiences
                   that complement your next adventure.
                 </p>
@@ -338,7 +338,7 @@ export default async function TripDetailsPage({ params }) {
                 <Reveal key={experience.id} delay={index * 100}>
                   <Link
                     href={`/trip/category/${experience.categorySlug}`}
-                    className="group relative block h-[350px] w-full overflow-hidden rounded-2xl bg-[#e4e8e5] outline-none transition-[transform,box-shadow] duration-500 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] focus-visible:ring-2 focus-visible:ring-[#242424] focus-visible:ring-offset-4 dark:bg-[#292c2e] dark:focus-visible:ring-white dark:focus-visible:ring-offset-[#191b1d] sm:h-[390px] lg:h-[420px]"
+                    className="group relative block h-87.5 w-full overflow-hidden rounded-2xl bg-[#e4e8e5] outline-none transition-[transform,box-shadow] duration-500 hover:-translate-y-1.5 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] focus-visible:ring-2 focus-visible:ring-[#242424] focus-visible:ring-offset-4 dark:bg-[#292c2e] dark:focus-visible:ring-white dark:focus-visible:ring-offset-[#191b1d] sm:h-97.5 lg:h-105"
                   >
                     <Image
                       src={experience.image}
@@ -346,7 +346,7 @@ export default async function TripDetailsPage({ params }) {
                       fill
                       quality={85}
                       sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 50vw"
-                      className="object-cover object-center transition-transform duration-[1200ms] ease-[cubic-bezier(0.22,1,0.36,1)] motion-safe:group-hover:scale-[1.065]"
+                      className="object-cover object-center transition-transform duration-1200 ease-[cubic-bezier(0.22,1,0.36,1)] motion-safe:group-hover:scale-[1.065]"
                     />
 
                     <span className="absolute inset-0 bg-linear-to-t from-black/80 via-black/15 to-black/5" />
@@ -359,15 +359,15 @@ export default async function TripDetailsPage({ params }) {
                     </span>
 
                     <div className="absolute right-0 bottom-0 left-0 p-6 text-white sm:p-7 lg:p-8">
-                      <span className="text-[11px] font-medium tracking-[0.1em] text-white/80 uppercase sm:text-[12px]">
+                      <span className="text-[11px] font-medium tracking-widest text-white/80 uppercase sm:text-[12px]">
                         WAYLUME Experiences
                       </span>
 
-                      <h3 className="font-heading mt-3 text-[26px] leading-[1.2] font-semibold tracking-[-0.05em] sm:text-[30px]">
+                      <h3 className="font-heading mt-3 text-[26px] leading-[1.2] font-semibold tracking-tighter sm:text-[30px]">
                         {experience.title}
                       </h3>
 
-                      <p className="mt-3 max-w-[440px] text-[13px] leading-[1.7] text-white/90 sm:text-[14px]">
+                      <p className="mt-3 max-w-110 text-[13px] leading-[1.7] text-white/90 sm:text-[14px]">
                         {experience.description}
                       </p>
 
@@ -407,7 +407,7 @@ export default async function TripDetailsPage({ params }) {
               </Reveal>
 
               <Reveal delay={120} className="lg:justify-self-end">
-                <p className="max-w-[470px] text-[14px] leading-[1.75] text-[#858585] dark:text-[#aaaaaa] sm:text-[16px]">
+                <p className="max-w-117.5 text-[14px] leading-[1.75] text-[#858585] dark:text-[#aaaaaa] sm:text-[16px]">
                   Continue your journey of discovery with more unforgettable
                   destinations and inspiring adventures.
                 </p>

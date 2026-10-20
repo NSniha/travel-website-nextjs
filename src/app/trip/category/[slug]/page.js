@@ -100,7 +100,7 @@ export default async function TripCategoryPage({ params }) {
           <Container>
             <div className="grid min-w-0 items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-14 xl:gap-20">
               <Reveal className="min-w-0">
-                <div className="group relative h-[340px] w-full overflow-hidden rounded-2xl bg-[#e6e9e6] dark:bg-[#292c2e] sm:h-[450px] lg:h-[520px] xl:h-[560px]">
+                <div className="group relative h-85 w-full overflow-hidden rounded-2xl bg-[#e6e9e6] dark:bg-[#292c2e] sm:h-112.5 lg:h-130 xl:h-140">
                   <Image
                     src={experience.image}
                     alt={
@@ -110,7 +110,7 @@ export default async function TripCategoryPage({ params }) {
                     fill
                     quality={90}
                     sizes="(max-width: 1023px) 100vw, 50vw"
-                    className="object-cover object-center transition-transform duration-[1200ms] ease-[cubic-bezier(0.22,1,0.36,1)] motion-safe:group-hover:scale-[1.045]"
+                    className="object-cover object-center transition-transform duration-1200 ease-[cubic-bezier(0.22,1,0.36,1)] motion-safe:group-hover:scale-[1.045]"
                   />
 
                   <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/55 via-transparent to-black/5" />
@@ -120,11 +120,11 @@ export default async function TripCategoryPage({ params }) {
                       Discover Your Travel Style
                     </span>
 
-                    <h3 className="font-heading mt-4 text-[28px] leading-[1.2] font-semibold tracking-[-0.05em] sm:text-[34px]">
+                    <h3 className="font-heading mt-4 text-[28px] leading-[1.2] font-semibold tracking-tighter sm:text-[34px]">
                       {experience.title}
                     </h3>
 
-                    <p className="mt-2 max-w-[430px] text-[13px] leading-[1.7] text-white/90 sm:text-[14px]">
+                    <p className="mt-2 max-w-107.5 text-[13px] leading-[1.7] text-white/90 sm:text-[14px]">
                       {experience.description}
                     </p>
                   </div>
@@ -139,13 +139,13 @@ export default async function TripCategoryPage({ params }) {
 
                   <h2
                     id="category-experience-heading"
-                    className="font-heading mt-5 max-w-[620px] text-[30px] leading-[1.2] font-semibold tracking-[-0.055em] text-[#242424] dark:text-white sm:text-[36px] lg:text-[40px]"
+                    className="font-heading mt-5 max-w-155 text-[30px] leading-[1.2] font-semibold tracking-[-0.055em] text-[#242424] dark:text-white sm:text-[36px] lg:text-[40px]"
                   >
                     Experience the Beauty of{" "}
                     {experience.title}
                   </h2>
 
-                  <p className="mt-5 max-w-[540px] text-[14px] leading-[1.8] font-normal text-[#858585] dark:text-[#aaaaaa] sm:mt-6 sm:text-[16px]">
+                  <p className="mt-5 max-w-135 text-[14px] leading-[1.8] font-normal text-[#858585] dark:text-[#aaaaaa] sm:mt-6 sm:text-[16px]">
                     {experience.details}
                   </p>
                 </Reveal>
@@ -162,7 +162,7 @@ export default async function TripCategoryPage({ params }) {
                           key={highlight}
                           className="flex items-start gap-3 text-[14px] leading-[1.7] text-[#777777] dark:text-[#b0b0b0] sm:text-[15px]"
                         >
-                          <span className="mt-[2px] flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#f0f1ef] text-[#242424] dark:bg-[#303234] dark:text-white">
+                          <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#f0f1ef] text-[#242424] dark:bg-[#303234] dark:text-white">
                             <IoCheckmarkOutline
                               aria-hidden="true"
                               className="text-[14px]"
@@ -196,7 +196,7 @@ export default async function TripCategoryPage({ params }) {
                         href={`/trip/${featuredTrip.slug}`}
                         className="group/trip flex items-center gap-4 rounded-xl border border-[#eeeeee] bg-[#fafafa] p-3 transition-all duration-300 hover:border-[#d3d3d3] hover:bg-[#f5f5f5] dark:border-white/10 dark:bg-[#202224] dark:hover:border-white/20 dark:hover:bg-[#292b2d]"
                       >
-                        <div className="relative h-[94px] w-[94px] shrink-0 overflow-hidden rounded-lg bg-[#e5e5e5] sm:h-[110px] sm:w-[130px]">
+                        <div className="relative h-23.5 w-23.5 shrink-0 overflow-hidden rounded-lg bg-[#e5e5e5] sm:h-27.5 sm:w-32.5">
                           <Image
                             src={featuredTrip.image}
                             alt={featuredTrip.imageAlt}
@@ -211,7 +211,7 @@ export default async function TripCategoryPage({ params }) {
                             {featuredTrip.title}
                           </h4>
 
-                          <p className="mt-2 flex items-center gap-1.5 text-[12px] leading-[1.5] text-[#858585] dark:text-[#aaaaaa]">
+                          <p className="mt-2 flex items-center gap-1.5 text-[12px] leading-normal text-[#858585] dark:text-[#aaaaaa]">
                             <IoLocationOutline
                               aria-hidden="true"
                               className="shrink-0 text-[15px]"

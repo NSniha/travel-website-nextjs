@@ -444,12 +444,6 @@ export default function TripExplorer({
           )}
         </div>
 
-        {/* Pricing Information */}
-
-        <p className="mt-8 text-center text-[11px] leading-[1.7] text-[#999999] dark:text-[#888888] sm:text-[12px]">
-          Sample itineraries, indicative prices and illustrative travel dates.
-          Final pricing, availability and booking are not currently confirmed.
-        </p>
       </Container>
     </section>
   );

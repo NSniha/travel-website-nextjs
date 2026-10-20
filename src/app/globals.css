@@ -163,3 +163,47 @@ button {
     will-change: auto;
   }
 }
+
+
+@keyframes waylumeDestinationsMarquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.waylume-destinations-marquee-viewport {
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 6%, #000 94%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 6%, #000 94%, transparent 100%);
+}
+
+.waylume-destinations-marquee-track {
+  animation: waylumeDestinationsMarquee 52s linear infinite;
+  animation-play-state: paused;
+  will-change: transform;
+}
+
+.waylume-destinations-marquee-viewport.is-playing .waylume-destinations-marquee-track {
+  animation-play-state: running;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .waylume-destinations-marquee-viewport {
+    overflow-x: auto;
+    scrollbar-width: thin;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  .waylume-destinations-marquee-track {
+    animation: none;
+    will-change: auto;
+  }
+
+  .waylume-destinations-copy:last-child {
+    display: none;
+  }
+}

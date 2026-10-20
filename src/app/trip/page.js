@@ -1,6 +1,7 @@
 import TripHero from "@/components/trip/TripHero";
 import TripCategories from "@/components/trip/TripCategories";
 import TripActivities from "@/components/trip/TripActivities";
+import PopularDestinations from "@/components/trip/PopularDestinations";
 import Footer from "@/components/layout/Footer";
 
 export const metadata = {
@@ -14,6 +15,7 @@ export default function TripPage() {
       <TripHero />
       <TripCategories />
       <TripActivities />
+      <PopularDestinations />
       <Footer />
     </main>
   );

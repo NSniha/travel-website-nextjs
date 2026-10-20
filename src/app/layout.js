@@ -2,6 +2,7 @@ import { DM_Sans, Manrope } from "next/font/google";
 import Header from "@/components/layout/Header";
 import ThemeProvider from "@/components/providers/ThemeProvider";
 import "./globals.css";
+import "flag-icons/css/flag-icons.min.css";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],

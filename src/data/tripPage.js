@@ -177,3 +177,53 @@ export const tripOffer = {
 };
 
 
+export const bookingSteps = [
+  {
+    id: "discover",
+    number: "01",
+    title: "Discover & Choose",
+    description: "Explore remarkable destinations and find the journey that inspires you.",
+    details: "Every unforgettable adventure begins with a little inspiration. Explore WAYLUME's destination guides, discover different travel styles, and find experiences that match your interests.",
+    highlights: [
+      "Explore inspiring destinations",
+      "Discover different travel experiences",
+      "Find journeys that match your interests",
+    ],
+  },
+  {
+    id: "personalize",
+    number: "02",
+    title: "Shape Your Journey",
+    description: "Imagine an experience that reflects your interests and travel style.",
+    details: "Think about the places you want to visit, the experiences you hope to enjoy, and the moments that matter most. Use these ideas to create a travel plan that feels uniquely yours.",
+    highlights: [
+      "Identify your travel preferences",
+      "Choose meaningful activities",
+      "Plan your ideal travel experience",
+    ],
+  },
+  {
+    id: "review",
+    number: "03",
+    title: "Review Your Plans",
+    description: "Explore important travel details and prepare with confidence.",
+    details: "Review your preferred destinations, suggested itineraries, travel dates, and important requirements before making any reservations through an available travel provider.",
+    highlights: [
+      "Review your travel itinerary",
+      "Check important destination information",
+      "Confirm arrangements with your provider",
+    ],
+  },
+  {
+    id: "prepare",
+    number: "04",
+    title: "Get Ready to Explore",
+    description: "Prepare the essentials and look forward to your next adventure.",
+    details: "From organizing travel documents to preparing your packing list, a little thoughtful planning helps make your journey smoother and more enjoyable.",
+    highlights: [
+      "Prepare important travel documents",
+      "Organize your packing checklist",
+      "Get ready for extraordinary experiences",
+    ],
+  },
+];

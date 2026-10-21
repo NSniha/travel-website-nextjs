@@ -22,21 +22,9 @@
 
 ---
 
-## Table of Contents
+## Preview
+<img width="1280" height="800" alt="travel-preview" src="https://github.com/user-attachments/assets/e70842af-f0b5-4b37-a626-669970c13dd8" />
 
-- [Overview](#overview)
-- [Key Features](#key-features)
-- [Tech Stack](#tech-stack)
-- [Dependencies](#dependencies)
-- [Project Structure](#project-structure)
-- [Getting Started](#getting-started)
-- [Available Scripts](#available-scripts)
-- [Code Quality](#code-quality)
-- [Deployment](#deployment)
-- [Design Decisions](#design-decisions)
-- [Roadmap](#roadmap)
-- [Contributing](#contributing)
-- [Author](#author)
 
 ---
 
@@ -51,17 +39,6 @@ The goal of the project is to show how a polished travel-brand design can be tur
 into a fast, accessible and maintainable codebase using modern tooling.
 
 **Live website:** [travel-website-nine-iota-14.vercel.app](https://travel-website-nine-iota-14.vercel.app)
-
-<!--
-PREVIEW: after adding your screenshot to /public (for example public/preview.png),
-remove this comment wrapper to show the image.
-
-## Preview
-
-<div align="center">
-  <img src="./public/preview.png" alt="Waylume Travel website preview" width="90%" />
-</div>
--->
 
 ---
 

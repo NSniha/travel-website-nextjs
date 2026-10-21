@@ -17,12 +17,15 @@ const manrope = Manrope({
 });
 
 export const metadata = {
-  title: {
-    default: "WAYLUME | Go Further. Feel More.",
-    template: "%s | WAYLUME",
+  title: "WAYLUME | Go Further. Feel More.",
+
+  description:
+    "Discover extraordinary destinations, unforgettable journeys, and meaningful travel experiences with WAYLUME.",
+
+  icons: {
+    icon: "/icon.png",
+    shortcut: "/icon.png",
   },
-  description: "Discover extraordinary destinations, curated adventures, and unforgettable travel experiences with WAYLUME.",
-  keywords: ["WAYLUME", "Travel", "Adventure", "Destinations", "Travel Experiences"],
 };
 
 export default function RootLayout({ children }) {

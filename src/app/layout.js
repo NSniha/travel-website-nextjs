@@ -23,8 +23,16 @@ export const metadata = {
     "Discover extraordinary destinations, unforgettable journeys, and meaningful travel experiences with WAYLUME.",
 
   icons: {
-    icon: "/icon.png",
-    shortcut: "/icon.png",
+    icon: [
+      {
+        url: "/waylume-favicon.png?v=2",
+        type: "image/png",
+      },
+    ],
+
+    shortcut: "/waylume-favicon.png?v=2",
+
+    apple: "/waylume-favicon.png?v=2",
   },
 };
 

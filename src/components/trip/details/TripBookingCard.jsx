@@ -15,6 +15,7 @@ import {
 import { formatTripPrice } from "@/lib/trips";
 
 const SAMPLE_DATE_OFFSETS = [0, 28, 56, 84];
+const TRIP_SELECTION_KEY = "waylume-trip-selection";
 
 function addDays(date, days) {
   const updated = new Date(date);
@@ -46,6 +47,7 @@ function createDateOptions(trip) {
     return {
       id: `${trip.slug}-date-${index}`,
       departure: departure.toISOString().slice(0, 10),
+      returnDate: returnDate.toISOString().slice(0, 10),
       label: `${formatShortDate(departure)} – ${formatShortDate(returnDate)}`,
       year: departure.getUTCFullYear(),
       isOriginal: index === 0,
@@ -58,7 +60,8 @@ export default function TripBookingCard({ trip, details }) {
 
   const dateOptions = useMemo(() => createDateOptions(trip), [trip]);
 
-  const selectedDate = dateOptions[selectedDateIndex] || dateOptions[0] || null;
+  const selectedDate =
+    dateOptions[selectedDateIndex] || dateOptions[0] || null;
 
   const facilities = Array.isArray(details?.facilities)
     ? details.facilities
@@ -66,11 +69,22 @@ export default function TripBookingCard({ trip, details }) {
 
   const price = formatTripPrice(trip.priceFrom, trip.currency);
 
-  const contactHref = `/contact?trip=${encodeURIComponent(
-    trip.slug
-  )}&departure=${encodeURIComponent(
-    selectedDate?.departure || trip.departureDate || ""
-  )}`;
+  const handlePlanJourney = () => {
+    const selection = {
+      tripSlug: trip.slug,
+      departureDate: selectedDate?.departure || trip.departureDate || "",
+      returnDate: selectedDate?.returnDate || trip.returnDate || "",
+    };
+
+    try {
+      window.sessionStorage.setItem(
+        TRIP_SELECTION_KEY,
+        JSON.stringify(selection)
+      );
+    } catch {
+      // Navigation still works if browser storage is unavailable.
+    }
+  };
 
   return (
     <aside
@@ -269,7 +283,8 @@ export default function TripBookingCard({ trip, details }) {
       {/* Journey Planning CTA */}
       <div className="mt-7 border-t border-[#ececec] pt-6 dark:border-white/10">
         <Link
-          href={contactHref}
+          href="/contact"
+          onClick={handlePlanJourney}
           className="group relative flex h-12 w-full items-center justify-center gap-3 overflow-hidden rounded-lg bg-[#242424] px-5 text-[13px] font-medium text-white shadow-[0_5px_18px_rgba(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_28px_rgba(0,0,0,0.13)] focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#242424] dark:bg-white dark:text-[#242424] dark:focus-visible:outline-white"
         >
           <span className="absolute inset-0 -translate-x-full bg-[#454545] transition-transform duration-500 ease-out group-hover:translate-x-0 dark:bg-[#e8e8e8]" />

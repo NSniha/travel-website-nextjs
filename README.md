@@ -1,6 +1,8 @@
 <div align="center">
+  
+# ✈️ Waylume Travel
 
-<img src="https://readme-typing-svg.demolab.com?font=Poppins&weight=700&size=34&duration=3000&pause=1000&color=0EA5E9&center=true&vCenter=true&width=700&lines=Wanderly+%E2%9C%88%EF%B8%8F;Plan+Less.+Explore+More.;A+Modern+Travel+Website+Built+with+Next.js" alt="Typing SVG" />
+### A Modern Travel Website Built with Next.js
 
 <p>
 A fast, fully responsive travel website that helps visitors discover destinations,
@@ -23,22 +25,6 @@ modern and mobile-first interface.
 </p>
 
 </div>
-
----
-
-## 📑 Table of Contents
-
-- [Overview](#-overview)
-- [Preview](#-preview)
-- [Key Features](#-key-features)
-- [Tech Stack](#-tech-stack)
-- [Project Structure](#-project-structure)
-- [Getting Started](#-getting-started)
-- [Available Scripts](#-available-scripts)
-- [Deployment](#-deployment)
-- [Design Decisions](#-design-decisions)
-- [Roadmap](#-roadmap)
-- [Author](#-author)
 
 ---
 

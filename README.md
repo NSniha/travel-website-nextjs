@@ -9,14 +9,7 @@
   <a href="https://github.com/NSniha/travel-website-nextjs"><img src="https://img.shields.io/badge/Source_Code-GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Repository" /></a>
 </p>
 
-<p>
-  <img src="https://img.shields.io/badge/Next.js-16-000000?style=flat-square&logo=nextdotjs&logoColor=white" alt="Next.js 16" />
-  <img src="https://img.shields.io/badge/React-19-20232A?style=flat-square&logo=react&logoColor=61DAFB" alt="React 19" />
-  <img src="https://img.shields.io/badge/Tailwind_CSS-4-0F172A?style=flat-square&logo=tailwindcss&logoColor=38BDF8" alt="Tailwind CSS 4" />
-  <img src="https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=flat-square&logo=javascript&logoColor=black" alt="JavaScript" />
-  <img src="https://img.shields.io/badge/Linted_with-Oxlint-FF6B35?style=flat-square" alt="Oxlint" />
-  <img src="https://img.shields.io/badge/Deployed_on-Vercel-000000?style=flat-square&logo=vercel&logoColor=white" alt="Vercel" />
-</p>
+<img src="https://skillicons.dev/icons?i=nextjs,react,js,tailwind,css,html,git,github,vercel,vscode&theme=dark" alt="Technologies used" />
 
 </div>
 
@@ -237,8 +230,7 @@ Please run `npm run lint` and `npm run format:check` before submitting.
 
 <div align="center">
 
-**Nobonita Saha N.**
-Front-End Developer | Design-to-Code Specialist | Creative Coder
+**Nobonita Saha Niha**
 
 <a href="https://www.linkedin.com/in/nobonita-saha-niha-04b501214/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
 <a href="https://github.com/NSniha"><img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" /></a>

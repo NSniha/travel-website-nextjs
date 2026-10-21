@@ -13,7 +13,7 @@ const footerLinks = [
   { label: "Journeys", href: "/#upcoming-adventures" },
   { label: "Services", href: "/#services" },
   { label: "Travel Journal", href: "/#travel-tips" },
-  { label: "Contact Us", href: "/#footer-contact" },
+  { label: "Contact Us", href: "/contact" },
 ];
 
 const socialLinks = [

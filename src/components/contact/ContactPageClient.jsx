@@ -18,14 +18,21 @@ import Container from "@/components/shared/Container";
 import Reveal from "@/components/shared/Reveal";
 import { trips } from "@/data/trips";
 
+const formspreeFormId = process.env.NEXT_PUBLIC_FORMSPREE_FORM_ID;
+const formspreeEndpoint = formspreeFormId
+  ? `https://formspree.io/f/${formspreeFormId}`
+  : null;
+
+const TRIP_SELECTION_KEY = "waylume-trip-selection";
+
 const contactEmail =
-  process.env.NEXT_PUBLIC_WAYLUME_CONTACT_EMAIL || "";
+  process.env.NEXT_PUBLIC_WAYLUME_CONTACT_EMAIL || "nobonitasaha042@gmail.com";
 
 const contactPhone =
-  process.env.NEXT_PUBLIC_WAYLUME_CONTACT_PHONE || "";
+  process.env.NEXT_PUBLIC_WAYLUME_CONTACT_PHONE || "+88 019 6530 6403";
 
 const contactAddress =
-  process.env.NEXT_PUBLIC_WAYLUME_CONTACT_ADDRESS || "";
+  process.env.NEXT_PUBLIC_WAYLUME_CONTACT_ADDRESS || "Uk, London, 1234, 5th Avenue, 10001";
 
 const socialLinks = [
   {
@@ -301,6 +308,7 @@ function ContactForm({
 }) {
   const formRef = useRef(null);
   const dateDialogRef = useRef(null);
+  const submittingRef = useRef(false);
 
   const [form, setForm] = useState({
     ...initialForm,
@@ -316,6 +324,53 @@ function ContactForm({
 
   const [errors, setErrors] = useState({});
   const [feedback, setFeedback] = useState(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  useEffect(() => {
+    const url = new URL(window.location.href);
+    const hasTripParams =
+      url.searchParams.has("trip") || url.searchParams.has("departure");
+
+    try {
+      if (initialTripSlug && trips.some((trip) => trip.slug === initialTripSlug)) {
+        window.sessionStorage.setItem(
+          TRIP_SELECTION_KEY,
+          JSON.stringify({
+            tripSlug: initialTripSlug,
+            departureDate: initialDeparture,
+            returnDate: initialReturnDate,
+          })
+        );
+      } else {
+        const saved = window.sessionStorage.getItem(TRIP_SELECTION_KEY);
+        const selection = saved ? JSON.parse(saved) : null;
+        const selectedTrip = trips.find(
+          (trip) => trip.slug === selection?.tripSlug
+        );
+
+        if (selectedTrip) {
+          setForm((previous) => ({
+            ...previous,
+            destination: selectedTrip.slug,
+            startDate: selection.departureDate || "",
+            endDate: selection.returnDate || "",
+          }));
+        }
+      }
+    } catch {
+      // Contact form still works if sessionStorage is unavailable.
+    }
+
+    if (hasTripParams) {
+      url.searchParams.delete("trip");
+      url.searchParams.delete("departure");
+      window.history.replaceState(
+        window.history.state,
+        "",
+        `${url.pathname}${url.search}${url.hash}`
+      );
+    }
+  }, [initialTripSlug, initialDeparture, initialReturnDate]);
 
   useEffect(() => {
     if (!feedback) return;
@@ -426,11 +481,11 @@ function ContactForm({
     return nextErrors;
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
+    if (submittingRef.current) return;
 
     const validationErrors = validateForm();
-
     setErrors(validationErrors);
     setFeedback(null);
 
@@ -444,83 +499,85 @@ function ContactForm({
           ?.querySelector(`[name="${firstField}"]`)
           ?.focus();
       }
+      return;
+    }
 
+    if (!formspreeEndpoint) {
+      setFeedback({
+        id: Date.now(),
+        type: "error",
+        title: "Contact Form Unavailable",
+        message: "The contact service is not configured yet. Please try again later.",
+      });
       return;
     }
 
     const selectedTrip = trips.find(
       (trip) => trip.slug === form.destination
     );
-
     const destinationName =
       selectedTrip?.title ||
-      (form.destination === "other"
-        ? "Other / Not Sure Yet"
-        : form.destination);
+      (form.destination === "other" ? "Other / Not Sure Yet" : form.destination);
+    const firstName = form.fullName.trim().split(/\s+/)[0];
 
-    const inquiry = {
-      fullName: form.fullName.trim(),
-      email: form.email.trim(),
-      destination: destinationName,
-      tripSlug: selectedTrip?.slug || null,
-      startDate: form.startDate || null,
-      endDate: form.endDate || null,
-      message: form.message.trim(),
-      createdAt: new Date().toISOString(),
-    };
+    const payload = new FormData();
+    payload.append("name", form.fullName.trim());
+    payload.append("email", form.email.trim());
+    payload.append("destination", destinationName);
+    payload.append("tripSlug", selectedTrip?.slug || "Not specified");
+    payload.append("startDate", form.startDate || "Flexible");
+    payload.append("endDate", form.endDate || "Flexible");
+    payload.append("message", form.message.trim());
+    payload.append("_subject", `WAYLUME Travel Inquiry - ${destinationName}`);
 
-    const firstName = inquiry.fullName.split(/\s+/)[0];
+    submittingRef.current = true;
+    setIsSubmitting(true);
 
     try {
-      window.sessionStorage.setItem(
-        "waylume-contact-inquiry",
-        JSON.stringify(inquiry)
-      );
+      const response = await fetch(formspreeEndpoint, {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: payload,
+      });
+      const result = await response.json().catch(() => ({}));
 
-      if (contactEmail) {
-        const emailSubject = `WAYLUME Travel Inquiry - ${destinationName}`;
-
-        const emailBody = [
-          `Full Name: ${inquiry.fullName}`,
-          `Email: ${inquiry.email}`,
-          `Destination: ${inquiry.destination}`,
-          `Travel From: ${inquiry.startDate || "Flexible"}`,
-          `Travel To: ${inquiry.endDate || "Flexible"}`,
-          "",
-          "Message:",
-          inquiry.message,
-        ].join("\n");
-
-        const mailtoUrl = `mailto:${contactEmail}?subject=${encodeURIComponent(
-          emailSubject
-        )}&body=${encodeURIComponent(emailBody)}`;
-
-        setFeedback({
-          id: Date.now(),
-          type: "success",
-          title: "Your inquiry is ready!",
-          message: `Thank you, ${firstName}! Your travel inquiry has been prepared.`,
-          note: "Complete the process by sending the message in your email application.",
-        });
-
-        window.location.href = mailtoUrl;
-      } else {
-        setFeedback({
-          id: Date.now(),
-          type: "success",
-          title: "Your inquiry is ready!",
-          message: `Thank you, ${firstName}! Your travel inquiry has been saved in this browser.`,
-          note: "Your message hasn't been delivered yet.",
-        });
+      if (!response.ok || result.ok === false) {
+        const providerError = Array.isArray(result.errors)
+          ? result.errors.map((item) => item.message).filter(Boolean).join(" ")
+          : "";
+        const message = response.status === 429
+          ? "Too many requests. Please wait a little and try again."
+          : providerError || "Your message could not be sent. Please try again.";
+        throw new Error(message);
       }
-    } catch {
+
+      setFeedback({
+        id: Date.now(),
+        type: "success",
+        title: "Message Sent Successfully!",
+        message: `Thank you, ${firstName}! Your travel inquiry has been submitted successfully.`,
+        note: "Your inquiry has been accepted by our contact service.",
+      });
+
+      setForm({ ...initialForm });
+      setErrors({});
+      try {
+        window.sessionStorage.removeItem(TRIP_SELECTION_KEY);
+      } catch {
+        // The successful submission is unaffected by browser storage.
+      }
+    } catch (error) {
       setFeedback({
         id: Date.now(),
         type: "error",
-        title: "Unable to save your inquiry",
-        message:
-          "We couldn't save your information in this browser. Please try again.",
+        title: "Message Could Not Be Sent",
+        message: error instanceof Error
+          ? error.message
+          : "Something went wrong. Please try again.",
       });
+    } finally {
+      submittingRef.current = false;
+      setIsSubmitting(false);
     }
   };
 
@@ -540,6 +597,7 @@ function ContactForm({
           ref={formRef}
           onSubmit={handleSubmit}
           noValidate
+          aria-busy={isSubmitting}
           className="mt-7 space-y-5"
         >
           <div>
@@ -719,9 +777,17 @@ function ContactForm({
 
           <button
             type="submit"
-            className="group relative flex h-11 w-full items-center justify-center overflow-hidden rounded-[5px] bg-[#242424] px-5 text-[13px] font-semibold text-white transition-all duration-300 hover:bg-[#444444] hover:shadow-[0_8px_20px_rgba(0,0,0,0.12)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#242424] dark:bg-white dark:text-[#242424] dark:hover:bg-[#e9e9e9]"
+            disabled={isSubmitting}
+            className="group relative flex h-11 w-full items-center justify-center gap-2 overflow-hidden rounded-[5px] bg-[#242424] px-5 text-[13px] font-semibold text-white transition-all duration-300 hover:bg-[#444444] hover:shadow-[0_8px_20px_rgba(0,0,0,0.12)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#242424] disabled:cursor-not-allowed disabled:opacity-65 dark:bg-white dark:text-[#242424] dark:hover:bg-[#e9e9e9]"
           >
-            Send
+            {isSubmitting ? (
+              <>
+                <span aria-hidden="true" className="h-4 w-4 animate-spin rounded-full border-2 border-white/30 border-t-white dark:border-[#242424]/20 dark:border-t-[#242424]" />
+                Sending...
+              </>
+            ) : (
+              "Send"
+            )}
           </button>
         </form>
       </div>

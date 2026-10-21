@@ -1,6 +1,8 @@
 import { DM_Sans, Manrope } from "next/font/google";
+
 import Header from "@/components/layout/Header";
 import ThemeProvider from "@/components/providers/ThemeProvider";
+
 import "./globals.css";
 import "flag-icons/css/flag-icons.min.css";
 
@@ -17,29 +19,34 @@ const manrope = Manrope({
 });
 
 export const metadata = {
-  title: "WAYLUME | Go Further. Feel More.",
+  title: {
+    default: "WAYLUME | Go Further. Feel More.",
+    template: "%s | WAYLUME",
+  },
 
   description:
     "Discover extraordinary destinations, unforgettable journeys, and meaningful travel experiences with WAYLUME.",
 
+  applicationName: "WAYLUME Travel",
+
   icons: {
     icon: [
       {
-        url: "/waylume-favicon.png?v=2",
+        url: "/waylume-icon-2026.png",
         type: "image/png",
       },
     ],
 
-    shortcut: "/waylume-favicon.png?v=2",
-
-    apple: "/waylume-favicon.png?v=2",
+    shortcut: "/waylume-icon-2026.png",
   },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${dmSans.variable} ${manrope.variable} antialiased`}>
+      <body
+        className={`${dmSans.variable} ${manrope.variable} antialiased`}
+      >
         <ThemeProvider>
           <Header />
           {children}

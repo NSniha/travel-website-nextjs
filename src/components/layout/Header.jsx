@@ -19,7 +19,7 @@ export default function Header() {
     <>
       <header className="relative z-40 w-full bg-white transition-colors duration-300 dark:bg-[#101112]">
         <Container>
-          <div className="relative flex h-[72px] items-center justify-between sm:h-[82px] lg:h-[92px]">
+          <div className="relative flex h-18 items-center justify-between sm:h-20.5 lg:h-23">
             <Link
               href="/"
               aria-label="WAYLUME Home"
@@ -28,7 +28,7 @@ export default function Header() {
               {siteConfig.name}
             </Link>
 
-            <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-[34px] lg:flex xl:gap-[42px]" aria-label="Main navigation">
+            <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-8.5 lg:flex xl:gap-10.5" aria-label="Main navigation">
               {siteConfig.navigation.map((item) => {
                 const isActive = pathname === item.href;
 
@@ -43,7 +43,7 @@ export default function Header() {
                       {item.label}
                       <span
                         aria-hidden="true"
-                        className="absolute -bottom-[6px] left-0 h-px w-full origin-left scale-x-0 bg-current transition-transform duration-300 ease-out group-hover:scale-x-100"
+                        className="absolute -bottom-1.5 left-0 h-px w-full origin-left scale-x-0 bg-current transition-transform duration-300 ease-out group-hover:scale-x-100"
                       />
                     </span>
                   </Link>
@@ -51,7 +51,7 @@ export default function Header() {
               })}
             </nav>
 
-            <div className="flex items-center gap-[10px]">
+            <div className="flex items-center gap-2.5">
               <ThemeToggle />
 
               <button
@@ -60,7 +60,7 @@ export default function Header() {
                 aria-label="Open navigation menu"
                 aria-expanded={menuOpen}
                 aria-controls="mobile-navigation"
-                className="flex h-[42px] w-[42px] items-center justify-center rounded-[10px] border border-[#e5e7eb] text-[#242424] transition-all duration-300 hover:border-[#c9cdd3] hover:bg-[#f7f7f7] active:scale-95 dark:border-white/15 dark:text-white dark:hover:bg-white/10 lg:hidden"
+                className="flex h-10.5 w-10.5 items-center justify-center rounded-[10px] border border-[#e5e7eb] text-[#242424] transition-all duration-300 hover:border-[#c9cdd3] hover:bg-[#f7f7f7] active:scale-95 dark:border-white/15 dark:text-white dark:hover:bg-white/10 lg:hidden"
               >
                 <IoMenuOutline className="text-[23px]" />
               </button>

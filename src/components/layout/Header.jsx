@@ -46,7 +46,7 @@ export default function Header() {
         }`}
       >
         <Container>
-          <div className="relative flex h-18 items-center justify-between sm:h-20.5 lg:h-21">
+          <div className="relative flex h-18 items-center justify-between sm:h-20.5 lg:h-23">
             {/* Logo */}
 
             <Link
